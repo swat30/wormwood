@@ -68,9 +68,11 @@ public class Game {
    private void executeCommand (Object cmd) {
       //cmd.exec(p);
 	  try{
-		  Class tClass = Class.forName("cmd."+cmd.getClass());
-		  Method exec = tClass.getMethod("exec", tClass);
+		  Class tClass = cmd.getClass();
+		  Method exec = tClass.getMethod("exec", Player.class);
 		  exec.invoke(cmd, p);
-	  } catch(Exception e){}
+	  } catch(Exception e){
+		  Output.println(e);
+	  }
    }
 }
