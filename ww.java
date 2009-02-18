@@ -1,3 +1,5 @@
+import core.Game;
+
 public class ww {
 	public static void main(String[] args) {
       final String VERSION = "0.10";
