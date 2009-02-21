@@ -2,8 +2,6 @@ package obj;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import cmd.Exit;
-
 public class Room {
 	private String desc;
 	private String name;	  

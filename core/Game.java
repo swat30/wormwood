@@ -39,8 +39,6 @@ public class Game {
 
       if (cmd != null)
          executeCommand(cmd);
-      else
-         System.out.println("Unrecognized command.");
    }
 
    /** Creates all the rooms, returns starting room */

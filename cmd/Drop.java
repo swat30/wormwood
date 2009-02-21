@@ -23,7 +23,8 @@ public class Drop implements Command {
    }
 
    public void construct(String params[]){
-	   
+	   if(params[0].length() > 0)
+		   this.setName(params[0]);   
    }
    
    public void setDir (char d) {}

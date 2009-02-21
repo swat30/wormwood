@@ -16,7 +16,8 @@ public class Use implements Command {
    }
 
    public void construct(String params[]){
-	   
+	   if (params.length > 0)
+         setName(params[0]);
    }
    
    public void setDir (char dir) {}
