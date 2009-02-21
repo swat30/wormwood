@@ -31,9 +31,9 @@ public class Parser {
 		  Method con = tClass.getMethod("construct", String[].class);
 		  con.invoke(obj, parameters);
       } catch(java.lang.reflect.InvocationTargetException e){
-    	  Output.println("Invalid parameters for command. Type 'help "+cmd+"' for options.");
+    	  Output.print("Invalid parameters for command. Type 'help "+cmd+"' for options.");
       } catch(Exception e){
-    	  Output.println("Invalid command. Type 'help' for a list of commands.\n");
+    	  Output.print("Invalid command. Type 'help' for a list of commands.\n");
       }
       
       return obj;
