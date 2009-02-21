@@ -11,8 +11,6 @@ public class Look implements Command {
    }
    
    public void construct(String params[]){
-	   if(params[0].length() > 0)
-		   this.setDir(params[0].charAt(0));
    }
 
    public void setDir (char d) {}
