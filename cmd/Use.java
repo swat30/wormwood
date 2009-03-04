@@ -20,7 +20,7 @@ public class Use implements Command {
          setName(params[0]);
    }
    
-   public void setDir (char dir) {}
+   public void setDir (String dir) {}
 
    public void setName (String itemToBeUsed) {
       itemName = itemToBeUsed;

@@ -22,7 +22,7 @@ public class Quit implements Command {
 	   
    }
 
-   public void setDir (char d) {}
+   public void setDir (String d) {}
    public void setName (String n) {}
       
 }

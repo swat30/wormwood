@@ -27,7 +27,7 @@ public class Drop implements Command {
 		   this.setName(params[0]);   
    }
    
-   public void setDir (char d) {}
+   public void setDir (String d) {}
 
    public void setName (String itemToDrop) {
       itemName = itemToDrop;

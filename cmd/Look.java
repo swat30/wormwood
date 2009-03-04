@@ -13,6 +13,6 @@ public class Look implements Command {
    public void construct(String params[]){
    }
 
-   public void setDir (char d) {}
+   public void setDir (String d) {}
    public void setName (String n) {}
 }

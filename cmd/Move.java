@@ -6,7 +6,7 @@ import obj.Room;
 import iface.Command;
 
 public class Move implements Command {
-   private char dir;
+   private String dir;
 
    public void exec (Player player) {
       // Get current room to find exits
@@ -25,10 +25,10 @@ public class Move implements Command {
    }
 
    public void construct(String params[]){
-	   
-   }
+      setDir(params[0]);
+   }  
    
-   public void setDir (char d) {
+   public void setDir (String d) {
       dir = d;
    }
 

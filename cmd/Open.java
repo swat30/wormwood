@@ -6,7 +6,7 @@ import iface.Command;
 
 public class Open implements Command {
    private String name;
-   private char dir;
+   private String dir;
 
    public void exec (Player p) {
       Room r = p.getRoom();
@@ -29,7 +29,7 @@ public class Open implements Command {
 	   
    }
    
-   public void setDir (char d) {
+   public void setDir (String d) {
       dir = d;
    }
 

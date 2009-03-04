@@ -29,7 +29,7 @@ public class Examine implements Command {
 	   
    }
    
-   public void setDir (char d) {}
+   public void setDir (String d) {}
 
    public void setName (String objectToExamine) {
       object = objectToExamine;
