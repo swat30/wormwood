@@ -1,4 +1,5 @@
 package cmd;
+import obj.Exit;
 import obj.Player;
 import obj.Room;
 import iface.Command;
