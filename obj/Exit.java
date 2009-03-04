@@ -1,5 +1,4 @@
-package cmd;
-import obj.Room;
+package obj;
 
 public class Exit {
    private char dir;
