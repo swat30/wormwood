@@ -25,7 +25,7 @@ public class Move implements Command {
    }
 
    public void construct(String params[]){
-	   
+	   this.setDir(params[0].toLowerCase().charAt(0));
    }
    
    public void setDir (char d) {
