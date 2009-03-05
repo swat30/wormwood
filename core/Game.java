@@ -5,7 +5,7 @@ import iface.*;
 import cmd.*;
 
 public class Game {
-   private Command cmd;
+   private Object cmd;
    private Parser gp;
    private Player p;
 
@@ -35,10 +35,10 @@ public class Game {
 
       // Get user's input and parse it
       String rawCmd = Input.nextLine();
-      Object cmd = Parser.parse(rawCmd);
+      this.cmd = Parser.parse(rawCmd);
 
-      if (cmd != null)
-         executeCommand(cmd);
+      if (this.cmd != null)
+         executeCommand();
    }
 
    /** Creates all the rooms, returns starting room */
@@ -63,7 +63,7 @@ public class Game {
       return startRoom;
    }
 
-   private void executeCommand (Object cmd) {
+   private void executeCommand () {
 	  try {
 		  Class tClass = cmd.getClass();
 		  Method exec = tClass.getMethod("exec", Player.class);
