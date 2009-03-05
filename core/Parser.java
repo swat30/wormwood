@@ -24,16 +24,37 @@ public class Parser {
       // Default null cmd, unless proven otherwise
       Object obj = null;
 
+      //Checks to see if an alias exists
+      if(Alias.exists(cmd)){
+    	  Alias curAlias = Alias.get(cmd);
+    	  
+    	  //Adds the parameters passed to the alias to its param list
+    	  if(params.length > 0){
+    		  curAlias.addParams(params);
+    	  }
+    	  
+    	  //Reassign the parameter list and the command to be run
+    	  params = curAlias.getParams();
+    	  cmd = handleData.upperFirst(curAlias.getCommand());
+      }
+      
       try {
-    	  Class tClass = Class.forName("cmd."+cmd);
+    	  //Try to create a class object for the inputted command
+    	  //TODO: dynamically create ReferenceType to be parameterized
+    	  Class tClass = Class.forName("cmd."+cmd); 
+    	  //Create a new instance of this class
 		  obj = tClass.newInstance();
 		  Object parameters[] = {params};
+		  //Grab the method construct from the class
 		  Method con = tClass.getMethod("construct", String[].class);
+		  //Run construct on the object and pass it the parameters
 		  con.invoke(obj, parameters);
-      } catch(java.lang.reflect.InvocationTargetException e){
-    	  Output.print("Invalid parameters for command. Type 'help "+cmd+"' for options.");
-      } catch(Exception e){
-    	  Output.print("Invalid command. Type 'help' for a list of commands.\n");
+      } catch(java.lang.reflect.InvocationTargetException e){ //Catches an error within the construct
+    	  Output.println("Invalid parameters for command. Type 'help "+cmd+"' for options.");
+    	  //Set the object to null so the command won't try to run
+    	  obj = null;
+      } catch(Exception e){ //Catches an error when trying to create the class
+    	  Output.println("Invalid command. Type 'help' for a list of commands.");
       }
       
       return obj;
