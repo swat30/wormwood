@@ -18,10 +18,11 @@ public class Quit implements Command {
          System.out.println("You must answer with y or n.");
    }
    
-   public void construct(String params[]){
-	   
+   public String toString () {
+      return "Usage: Quit\nQuits the game.";
    }
 
+   public void construct(String params[]){}
    public void setDir (String d) {}
    public void setName (String n) {}
       

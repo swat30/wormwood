@@ -17,6 +17,8 @@ public class Parser {
       //Separate input into individual words and separate into the command and its parameters
       stringParse = rawCmd.split(" ");
       params = new String[stringParse.length - 1];
+      // Switch the first letter of the command name from lowercase to upper case 
+      // So that it can be matched (eg, it's Look.java, not look.java)
       cmd = handleData.upperFirst(stringParse[0]);
       if(stringParse.length > 1)
     	  params = handleData.removeFirst(stringParse);
@@ -25,7 +27,8 @@ public class Parser {
       Object obj = null;
 
       try {
-    	  Class tClass = Class.forName("cmd."+cmd);
+    	  // Get the class object associated with the command name
+        Class tClass = Class.forName("cmd."+cmd);
 		  obj = tClass.newInstance();
 		  Object parameters[] = {params};
 		  Method con = tClass.getMethod("construct", String[].class);

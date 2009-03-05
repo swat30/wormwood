@@ -41,4 +41,8 @@ public class Take implements Command {
    public void setName (String n) {
       name = n;
    }
+
+   public String toString () {
+      return "Usage: Take <item_name>\nPicks up an item in the current room, if it is able to be picked up.";
+   }
 }

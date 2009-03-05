@@ -11,6 +11,9 @@ public class Kate implements Command {
 	   
    }
 
+   public String toString () {
+      return "Help not implemented for Kate.";
+   }
    public void setDir (String d) {} 
    public void setName (String n) {}
 }

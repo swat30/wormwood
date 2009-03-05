@@ -32,4 +32,8 @@ public class Drop implements Command {
    public void setName (String itemToDrop) {
       itemName = itemToDrop;
    }
+
+   public String toString () {
+      return "Usage: Drop <item_name>\nDrops an item held in the inventory into the current room.";
+   }
 }

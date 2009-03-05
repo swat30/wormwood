@@ -25,6 +25,10 @@ public class Use implements Command {
    public void setName (String itemToBeUsed) {
       itemName = itemToBeUsed;
    }
+   
+   public String toString () {
+      return "Usage: Use <item_name>\nUses an item in the inventory. For example, if you have a gun, it will shoot the gun. Some items have a limited number of uses.";
+   }
 }
 
 

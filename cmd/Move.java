@@ -32,5 +32,8 @@ public class Move implements Command {
       dir = d;
    }
 
+   public String toString () {
+      return "Usage: Move <direction>\nMoves player from one room to another. For example, 'move n' will move you from the current room to the north room that it connects to.";
+   }
    public void setName (String n) {}
 }
