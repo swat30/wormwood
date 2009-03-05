@@ -91,7 +91,7 @@ public class Room {
       return item;
    }
 
-   public Exit getExit (char exitDir) {
+   public Exit getExit (String exitDir) {
       // If the direction desired is found in exits
       if (exits.containsKey(exitDir)) 
          return (Exit) exits.get(exitDir);
