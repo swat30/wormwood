@@ -29,10 +29,14 @@ public class Examine implements Command {
 	   
    }
    
-   public void setDir (char d) {}
+   public void setDir (String d) {}
 
    public void setName (String objectToExamine) {
       object = objectToExamine;
+   }
+
+   public String toString () {
+      return "Usage: Examine <item_name>\nExamines an item in the player's inventory or lying in the room. If two items have the same name, it defaults to examining the room before the inventory.";
    }
 }
 

@@ -10,9 +10,11 @@ public class Look implements Command {
       Output.println(p.getRoom());       
    }
    
-   public void construct(String params[]){
-   }
-
-   public void setDir (char d) {}
+   public void construct(String params[]){}
+   public void setDir (String d) {}
    public void setName (String n) {}
+
+   public String toString () {
+      return "Usage: Look\nPrints the description of the current room.";
+   }
 }

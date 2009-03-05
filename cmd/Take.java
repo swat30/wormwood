@@ -36,9 +36,13 @@ public class Take implements Command {
 		   this.setName(params[0]);
    }
    
-   public void setDir (char d) {}
+   public void setDir (String d) {}
 
    public void setName (String n) {
       name = n;
+   }
+
+   public String toString () {
+      return "Usage: Take <item_name>\nPicks up an item in the current room, if it is able to be picked up.";
    }
 }

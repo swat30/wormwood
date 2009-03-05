@@ -33,7 +33,7 @@ public class Game {
    public void prompt () {
       System.out.print("> ");
 
-      // Get user's input and parse it
+      // Get user"s input and parse it
       String rawCmd = Input.nextLine();
       Object cmd = Parser.parse(rawCmd);
 
@@ -51,10 +51,10 @@ public class Game {
       Room wRoom = new Room("West Forrest", "Westerly!");
       Room sRoom = new Room("South Forrest", "Southerly!");
       Room startRoom = new Room("Forrest Entrance", "A dark forrest.", items);
-      Exit sen = new Exit('s', startRoom, true, false, "empty");
-      Exit nes = new Exit('n', startRoom, false, false, "door");
-      Exit nExit = new Exit('n', nRoom, true, false, "empty");
-      Exit sExit = new Exit('s', sRoom, false, false, "empty");
+      Exit sen = new Exit("s", startRoom, true, false, "empty");
+      Exit nes = new Exit("n", startRoom, false, false, "door");
+      Exit nExit = new Exit("n", nRoom, true, false, "empty");
+      Exit sExit = new Exit("s", sRoom, false, false, "empty");
       startRoom.setExit(nExit);
       startRoom.setExit(sExit);
       nRoom.setExit(sen);
