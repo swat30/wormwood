@@ -1,13 +1,13 @@
 package obj;
 
 public class Exit {
-   private char dir;
+   private String dir;
    private Room room;
    private boolean passable;
    private boolean locked;
    private String name;
 
-   public Exit (char direction, Room roomToExitTo, boolean passable, boolean locked, String name) {
+   public Exit (String direction, Room roomToExitTo, boolean passable, boolean locked, String name) {
       dir = direction;
       room = roomToExitTo;
       this.locked = locked;
@@ -15,7 +15,7 @@ public class Exit {
       this.name = name;
    }
 
-   public char getDir() {
+   public String getDir() {
       return dir;
    }
       

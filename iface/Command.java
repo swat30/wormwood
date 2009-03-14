@@ -5,6 +5,8 @@ import obj.Player;
 public interface Command {
    public void exec (Player p);
    public void construct(String params[]);
-   //public void setDir (char d);
-   //public void setName (String n);
+   public void setDir (String d);
+   public void setName (String n);
+   // toString returns the help description of the command
+   public String toString ();
 }
