@@ -5,8 +5,8 @@ import java.util.Vector;
 public class Room {
 	private String desc;
 	private String name;	  
-   private Hashtable exits = new Hashtable();
-   private Vector<Item> items = new Vector(); 
+   private Hashtable<String, Exit> exits = new Hashtable<String, Exit>();
+   private Vector<Item> items = new Vector<Item>(); 
 
    public Room (String name, String desc, Exit n, Exit e, Exit w, Exit s, Item[] items) {
       setDesc(desc);
@@ -77,7 +77,7 @@ public class Room {
       items.remove(i);
    }
 
-   public Vector getItems () {
+   public Vector<Item> getItems () {
       return items;
    }
 
