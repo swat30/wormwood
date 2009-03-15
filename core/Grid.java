@@ -5,51 +5,51 @@
  *
  */
 package core;
+import obj.Room;
 public class Grid {
-	private Point[][] points;
+	private Room[][] points;
 	
 	/** Starts a new grid with specified dimensions, Xmax by Ymax */
 	public Grid(int Xmax, int Ymax){
-		points = new Point[Xmax][Ymax];
+		points = new Room[Xmax][Ymax];
 	}
 	
 	/** Adds an object at the specified point */
-	public void add(Object obj, int x, int y){
+	public void add(Room obj, int x, int y){
 		try {
 			//If there isn't a point at the location, create it
-			if(points[x][y] == null){
-				Point newPt = new Point(obj);
-				points[x][y] = newPt;
+			if(points[x][y] == null)
+				points[x][y] = obj;
 			//Else just add the obj to the existing point
-			} else 
-				points[x][y].add(obj);
+			else 
+				Output.error("Point ("+x+","+y+") already has a room on it.");
 		} catch(Exception e){
 			Output.error("Point ("+x+","+y+") is outside the grid.");
 		}
 	}
 	
 	/** Returns the object(s) north of point p */
-	public Point objNorth(Point p){
+	public Room objNorth(Room p){
 		return this.objAtOffset(p, 0, 1);
 	}
 	
 	/** Returns the object(s) east of point p */
-	public Point objEast(Point p){
+	public Room objEast(Room p){
 		return this.objAtOffset(p, 1, 0);
 	}
 	
 	/** Returns the object(s) south of point p */
-	public Point objSouth(Point p){
+	public Room objSouth(Room p){
 		return this.objAtOffset(p, 0, -1);
 	}
 	
 	/** Returns the object(s) west of point p */
-	public Point objWest(Point p){
+	public Room objWest(Room p){
 		return this.objAtOffset(p, -1, 0);
 	}
 	
 	/** Returns the object(s) at an offset of point p */
-	public Point objAtOffset(Point p, int xOffset, int yOffset){
+	public Room objAtOffset(Room p, int xOffset, int yOffset){
 		try {
 			int[] coordinates = this.getCoord(p);
 			return this.points[coordinates[0]+xOffset][coordinates[1]+yOffset];
@@ -61,7 +61,7 @@ public class Grid {
 	
 	/** Returns the coordinates of point p in an array
 	 *  with index 0 = x and 1 = y */
-	public int[] getCoord(Point p){
+	public int[] getCoord(Room p){
 		int[] coordinates = {-1, -1};
 		//Scans through the points to find the coordinate of the passed point
 		scan: for(int i = 0; i < points.length; i++){
