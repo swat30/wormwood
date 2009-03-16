@@ -6,12 +6,16 @@
  */
 package core;
 import obj.Room;
+import obj.Exit;
+import java.util.ArrayList;
 public class Grid {
 	private Room[][] points;
+	private ArrayList<Exit> exits;
 	
 	/** Starts a new grid with specified dimensions, Xmax by Ymax */
 	public Grid(int Xmax, int Ymax){
 		points = new Room[Xmax][Ymax];
+		exits = new ArrayList<Exit>();
 	}
 	
 	/** Adds an object at the specified point */
@@ -59,6 +63,24 @@ public class Grid {
 		return null;
 	}
 	
+	/** Returns the offset from r1 to r2 */
+	public int[] getOffset(Room r1, Room r2){
+		if(isOnGrid(r1) && isOnGrid(r2)){
+			int[] c1 = getCoord(r1);
+			int[] c2 = getCoord(r2);
+			int[] offset = {(c2[0] - c1[0]), (c2[1] - c1[1])};
+			return offset;
+		}
+		Output.error("At least one of the rooms is not on the grid.");
+		return null;
+	}
+	
+	/** Checks to see if the room is on the grid */
+	public boolean isOnGrid(Room r){
+		int[] coords = this.getCoord(r);
+		return (coords[0] != -1 && coords[1] != -1);
+	}
+	
 	/** Returns the coordinates of point p in an array
 	 *  with index 0 = x and 1 = y */
 	public int[] getCoord(Room p){
@@ -76,4 +98,18 @@ public class Grid {
 		}
 		return coordinates;
 	}
-}	
+	
+	/** 'Links' two rooms using an exit */
+	public void linkRooms(Room r1, Room r2, boolean passable, boolean locked, String name){
+		int[] offset = this.getOffset(r1, r2);
+		if(this.isOnGrid(r1) && this.isOnGrid(r2)){
+			if(Math.abs(offset[0]) == 1 && Math.abs(offset[1]) == 1){
+				Exit link = new Exit(passable, locked, name);
+				link.link(r1);
+				link.link(r2);
+				this.exits.add(link);
+			} else 
+				Output.error("The rooms are not adjacent. Cannot link.");
+		} 
+	}
+}

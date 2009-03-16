@@ -1,19 +1,10 @@
 package obj;
-import java.util.Hashtable;
 import java.util.Vector;
 
 public class Room {
 	private String desc;
 	private String name;	  
-   private Hashtable<String, Exit> exits = new Hashtable<String, Exit>();
    private Vector<Item> items = new Vector<Item>(); 
-
-   public Room (String name, String desc, Exit n, Exit e, Exit w, Exit s, Item[] items) {
-      setDesc(desc);
-      setName(name);
-      setExits(n, e, w, s); 
-      setItems(items);
-   }
 
    public Room (String name, String desc, Item[] items) {
       setName(name);
@@ -52,18 +43,6 @@ public class Room {
       return desc;
    }
 
-   public void setExits (Exit n, Exit e, Exit w, Exit s) {
-      setExit(n);
-      setExit(e);
-      setExit(w);
-      setExit(s);
-   }
-
-   /** Accepts a single direction and room for an exit */
-   public void setExit (Exit r) {
-      exits.put(r.getDir(), r);
-   }
-
    public void setItems (Item[] items) {
       for (int i = 0; i < items.length; i++) 
          this.items.add(items[i]); 
@@ -89,16 +68,6 @@ public class Room {
             item = items.get(i);
 
       return item;
-   }
-
-   public Exit getExit (String exitDir) {
-      // If the direction desired is found in exits
-      if (exits.containsKey(exitDir)) 
-         return (Exit) exits.get(exitDir);
-
-      // exit doesn't exist, must return dummy value
-      else  
-         return null;
    }
 
    /** overrides the generic java toString, so that the Room's description

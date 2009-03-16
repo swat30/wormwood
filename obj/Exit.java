@@ -1,26 +1,17 @@
 package obj;
+import core.Output;
 
 public class Exit {
-   private String dir;
-   private Room room;
    private boolean passable;
    private boolean locked;
    private String name;
+   private Room[] rooms;
 
-   public Exit (String direction, Room roomToExitTo, boolean passable, boolean locked, String name) {
-      dir = direction;
-      room = roomToExitTo;
+   public Exit (boolean passable, boolean locked, String name) {
       this.locked = locked;
       this.passable = passable;
       this.name = name;
-   }
-
-   public String getDir() {
-      return dir;
-   }
-      
-   public Room getRoom() {
-      return room;
+      this.rooms = new Room[2];
    }
 
    public String getName() {
@@ -41,5 +32,15 @@ public class Exit {
 
    public void setLocked(boolean locked) {
       this.locked = locked;
+   }
+   
+   public void link(Room r){
+	   for(int i = 0; i < 2; i++){
+		   if(rooms[i] == null){
+			   rooms[i] = r;
+			   return;
+		   }
+	   }
+	   Output.error("Exit '"+name+"' already has two rooms linked.");
    }
 }
