@@ -1,4 +1,5 @@
 package cmd;
+import core.Grid;
 import obj.Exit;
 import obj.Player;
 import obj.Room;
@@ -9,9 +10,12 @@ public class Open implements Command {
    private String dir;
 
    public void exec (Player p) {
-      Room r = p.getRoom();
-      Exit e = r.getExit(dir);
-
+	  // Get current room to find exits
+	  Room r = p.getRoom();
+	  Grid g = p.getGrid();
+	  Exit e = g.getExit(r, this.dir);
+	
+	  // A null room is returned if the exit doesn't exist
       if (e != null && e.getName() == name) {
          if (e.isPassable()) 
             System.out.println("Nothing to open here.");
