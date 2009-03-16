@@ -13,18 +13,30 @@ public class Grid {
 	private Room firstRoom;
 	private ArrayList<Exit> exits;
 	
-	/** Starts a new grid with specified dimensions, Xmax by Ymax */
+	/** 
+	 * Starts a new grid with specified dimensions, Xmax by Ymax 
+	 * @param Xmax define the maximum x value on the grid
+	 * @param Ymax define the maximum y value on the grid
+	 */
 	public Grid(int Xmax, int Ymax){
 		points = new Room[Xmax][Ymax];
 		exits = new ArrayList<Exit>();
 	}
 	
-	/** Returns the start room */
+	/** 
+	 * Returns the start room 
+	 * @return the first room added to the grid. This is considered the first room. 
+	 */
 	public Room getStart(){
 		return this.firstRoom;
 	}
 	
-	/** Adds an object at the specified point */
+	/** 
+	 * Adds an object at the specified point 
+	 * @param obj room to be added to the grid
+	 * @param x x value of room on grid
+	 * @param y y value of room on grid 
+	 */
 	public void add(Room obj, int x, int y){
 		try {
 			//If there isn't a point at the location, create it
@@ -41,7 +53,11 @@ public class Grid {
 		}
 	}
 	
-	/** Returns the object(s) north of point p */
+	/** 
+	 * Returns the object(s) north of point p 
+	 * @param p reference room
+	 * @return the room to the north of room 'p' 
+	 */
 	public Room objNorth(Room p){
 		return this.roomAtOffset(p, 0, 1);
 	}
