@@ -1,5 +1,6 @@
 package cmd;
 import core.Output;
+import core.Grid;
 import obj.Exit;
 import obj.Player;
 import obj.Room;
@@ -11,11 +12,12 @@ public class Move implements Command {
    public void exec (Player player) {
       // Get current room to find exits
       Room r = player.getRoom();
-      Exit e = r.getExit(dir);      
+      Grid g = player.getGrid();
+      Exit e = g.getExit(r, this.dir);
 
       // A null room is returned if the exit doesn't exist
       if (e != null) {
-         Room newRoom = e.getRoom();
+    	 Room newRoom = e.getDestRoom(r);
          player.setRoom(newRoom);
          // Print the description of the room
          System.out.println(newRoom);
