@@ -2,7 +2,7 @@ import core.Game;
  
 public class ww {
   public static void main(String[] args) {
-      final String VERSION = "0.10";
+      final String VERSION = "0.2";
  
       Game g = new Game(VERSION);
  
