@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import cmd.Kate;
 import obj.*;
 import core.*;
-import obj.*;
 
 public class Create {
 	/**
