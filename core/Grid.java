@@ -83,7 +83,7 @@ public class Grid {
 			int[] coordinates = this.getCoord(p);
 			return this.points[coordinates[0]+xOffset][coordinates[1]+yOffset];
 		} catch(Exception e){
-			Output.error("The grid ends below this object.");
+			Output.error("The grid ends before/att the specified offset from \""+p.getName()+"\".");
 		}
 		return null;
 	}
@@ -134,7 +134,7 @@ public class Grid {
 				link.link(r2);
 				this.exits.add(link);
 			} else 
-				Output.error("The rooms are not adjacent. Cannot link. "+offset[0]+","+offset[1]);
+				Output.error("The rooms are not adjacent. Cannot link room \""+r1.getName()+"\" with \""+r2.getName()+"\"");
 		} 
 	}
 	
