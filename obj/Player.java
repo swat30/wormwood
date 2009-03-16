@@ -1,7 +1,7 @@
 package obj;
 
 import java.util.Vector;
-
+import core.Grid;
 import core.Input;
 
 public class Player {
@@ -11,9 +11,10 @@ public class Player {
    private Vector<Item> inventory = new Vector();
    private Item curItem = null;
    private Room curRoom;
+   private Grid curGrid;
 
    /** Initializes basic player characteristics, such as name, etc. */
-   public Player(boolean getInfo, Room startingRoom) {
+   public Player(boolean getInfo, Grid startingGrid, Room startingRoom) {
       System.out.print("Enter a character name: ");
       name = Input.nextLine();
       System.out.println("Okay... you are " + name + ".");
@@ -33,14 +34,16 @@ public class Player {
       gender = Input.nextLine();
       
       curRoom = startingRoom;
+      this.curGrid = startingGrid;
    }
    
-   public Player (Room startingRoom) {
+   public Player (Grid startingGrid, Room startingRoom) {
       name = "buttface";
       age = 56;
       gender = "Neutral";
 
       curRoom = startingRoom;
+      this.curGrid = startingGrid;
    }
       
    public void setCurItem (Item i) {
@@ -81,6 +84,14 @@ public class Player {
 
    public Room getRoom() {
       return curRoom;
+   }
+   
+   public void setGrid(Grid newGrid){
+	   this.curGrid = newGrid;
+   }
+   
+   public Grid getGrid(){
+	   return this.curGrid;
    }
 
    public void setGender(String g) {

@@ -21,11 +21,10 @@ public class Game {
    public Game (String VERSION) {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
-      boolean getInfo = true;
       clearScreen();
       this.map = Create.init();
       Room startRoom = this.map.get(0).getStart();
-      p = new Player(startRoom);
+      p = new Player(this.map.get(0), startRoom);
       System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
       System.out.println(p.getRoom());
@@ -51,7 +50,7 @@ public class Game {
 		  Method exec = tClass.getMethod("exec", Player.class);
 		  exec.invoke(cmd, p);
 	  } catch(Exception e){
-		  Output.println(e);
+		  Output.println("Problem executing command.");
 	  }
    }
 }
