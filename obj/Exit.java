@@ -36,11 +36,23 @@ public class Exit {
    
    public void link(Room r){
 	   for(int i = 0; i < 2; i++){
-		   if(rooms[i] == null){
-			   rooms[i] = r;
+		   if(this.rooms[i] == null){
+			   this.rooms[i] = r;
 			   return;
 		   }
 	   }
 	   Output.error("Exit '"+name+"' already has two rooms linked.");
+   }
+   
+   public Room[] getRooms(){
+	   return this.rooms;
+   }
+   
+   public Room getDestRoom(Room r){
+	   if(rooms[0].equals(r))
+		   return rooms[1];
+	   else if(rooms[1].equals(r))
+		   return rooms[0];
+	   return null;
    }
 }
