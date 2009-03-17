@@ -23,8 +23,8 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
-	    Item gun = new Item("gun", "a frikkin gun", 3, kate);
-	    Item[] items = {gun};
+	   Item gun = new Item("gun", "a frikkin gun", 3, kate);
+	   Item[] items = {gun};
 		Room r5 = new Room("North Forrest", "Northerly!");
 		Room r2 = new Room("East Forrest", "Easterly!");
 		Room r3 = new Room("West Forrest", "Westerly!");

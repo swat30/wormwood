@@ -36,7 +36,7 @@ public class Game {
    public void prompt () {
       System.out.print("> ");
 
-      // Get user"s input and parse it
+      // Get user's input and parse it
       String rawCmd = Input.nextLine();
       this.cmd = Parser.parse(rawCmd);
 

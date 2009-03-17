@@ -36,7 +36,7 @@ public class Alias {
 		for(int i = 2; i < params.length; i++)
 			this.params.add(params[i]);
 		aliases.add(this);
-		Output.println("Alias added");
+		Output.println("Alias added.");
 	}
 	
 	//Returns an alias with a selected name
@@ -87,4 +87,8 @@ public class Alias {
 		}
 		return false;
 	}
+
+   public String toString () {
+      return "Usage: Alias <alias_name> <command_name> <command_paramater(s)>\nCreates an alias for a game command. For example, if you would rather type 'n' instead of 'move n', you could use the alias command as follows: alias n move n."
+   }
 }
