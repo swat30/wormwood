@@ -51,7 +51,7 @@ public class Player {
       curItem = i;
    }
 
-   /** Returns a specific item from the player's inventory
+   /**@Return A specific item from the player's inventory
     * If the item is not found, null is returned instead.*/
    public Item getItem (String itemName) {
       Item item = null;

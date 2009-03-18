@@ -1,5 +1,6 @@
 package cmd;
 import obj.Item;
+import obj.NPC;
 import obj.Player;
 import obj.Room;
 import iface.Command;
@@ -10,19 +11,25 @@ public class Examine implements Command {
    /** Each object that can be examined should have
     * a toString that will print relevant information.*/
    public void exec (Player p) {
-      Item i;
+      NPC npc = null;
+      Item i = null;
       Room r = p.getRoom();
 
       // Defaults to checking room first
       i = r.getItem(object);
+      npc = r.getNPC(object);
       
-      // Checks inventory if item not in room
+      // If the object is not in the room, it might be an item
+      // held in the player's inventory
       if (i == null)
          i = p.getItem(object);
       
-      // If the item was found in inventory or in room
+      // If the object was found in inventory or in room
       if (i != null)
          System.out.println(i);
+      // If it was an NPC
+      else if (npc != null)
+         System.out.println(npc);
    }
 
    public void construct(String params[]){
