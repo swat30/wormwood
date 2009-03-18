@@ -9,9 +9,12 @@ public class Entity {
       this.name = name;
    }
 
-   /** @return object's Name. */
+   /** @return object's Name (in all lowercase). */
    public String getName () {
-      return this.name;
+      // The Parser always makes the Strings entered lowercase
+      // To ease matching the strings, all entities return their
+      // names as lower case.
+      return this.name.toLowerCase();
    }
 
    /** Sets object's description, which is printed when the object is examined. */
