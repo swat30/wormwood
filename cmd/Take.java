@@ -2,7 +2,7 @@ package cmd;
 
 import iface.Command;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import obj.Item;
 import obj.Player;
@@ -13,21 +13,19 @@ public class Take implements Command {
 
    public void exec (Player p) {
       Room r = p.getRoom();
-      Vector<Item> items = r.getItems();
+      Item i = null;
+      ArrayList<Item> items = r.getItems();
       boolean somethingTaken = false;
 
-      // jump through items in the room and see if the
-      // item requested is there
-      for (int i = 0; i < items.size(); i++) {
-         if (name.equals(items.get(i).getName())) {
-            somethingTaken = true;
-            System.out.println("You picked up " + items.get(i).getName() + "."); 
-            p.addToInventory(items.get(i)); 
-            r.removeItem(items.get(i));
-         }
+      i = r.getItem(name);
+      
+      if (i != null) {
+         System.out.println("You picked up " + i.getName() + ".");
+         p.addToInventory(i);
+         r.removeItem(i);
       }
 
-      if (somethingTaken == false)
+      else 
          System.out.println("Unable to pick up " + name + ".");
    }
 

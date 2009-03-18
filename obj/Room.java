@@ -1,12 +1,19 @@
 package obj;
-import java.util.Vector;
+import java.util.ArrayList;
 
-public class Room {
-	private String desc;
-	private String name;	  
-   private Vector<Item> items = new Vector<Item>(); 
+public class Room extends Entity {
+   private ArrayList<Entity> entities = new ArrayList<Entity>();
+   private ArrayList<Item> items = new ArrayList<Item>(); 
+   private ArrayList<NPC> npcs = new ArrayList<NPC>();
 
-   public Room (String name, String desc, Item[] items) {
+   public Room (String name, String desc, Item[] items, NPC[] npcs) {
+      setName(name);
+      setDesc(desc);
+      setItems(items);
+      setNPCs(npcs);
+   }
+   
+   public Room (String name, String desc, Item[] items)  {
       setName(name);
       setDesc(desc);
       setItems(items);
@@ -27,25 +34,13 @@ public class Room {
       setName("Room");
    }
 
-   public void setName (String n) {
-      name = n;
-   }
-
-   public void setDesc (String d) {
-      desc = d;
-   }
-
-   public String getName () {
-      return name;
-   }
-
-   public String getDesc () {
-      return desc;
-   }
-
    public void setItems (Item[] items) {
       for (int i = 0; i < items.length; i++) 
          this.items.add(items[i]); 
+   }
+
+   public ArrayList<Item> getItems () {
+      return items;
    }
 
    public void addItem (Item i) {
@@ -55,11 +50,7 @@ public class Room {
    public void removeItem (Item i) {
       items.remove(i);
    }
-
-   public Vector<Item> getItems () {
-      return items;
-   }
-
+   
    public Item getItem (String itemName) {
       Item item = null;
 
@@ -68,6 +59,33 @@ public class Room {
             item = items.get(i);
 
       return item;
+   }
+
+   public void setNPCs (NPC[] npcs) {
+      for (int i = 0; i < npcs.length; i++)
+         this.npcs.add(npcs[i]);
+   }
+
+   public ArrayList<NPC> getNPCs () {
+      return npcs;
+   }
+
+   public void addNPC (NPC npc) {
+      npcs.add(npc);
+   }
+
+   public void removeNPC (NPC npc) {
+      npcs.remove(npc);
+   }
+   
+   public NPC getNPC (String NPCName) {
+      NPC n = null;
+
+      for (int i = 0; i < npcs.size(); i++) 
+         if (NPCName.equals(npcs.get(i).getName()))
+            n = npcs.get(i);
+
+      return n;
    }
 
    /** overrides the generic java toString, so that the Room's description
@@ -88,6 +106,6 @@ public class Room {
          }
       }
 
-      return desc + s;
+      return getDesc() + s;
    }
 }	

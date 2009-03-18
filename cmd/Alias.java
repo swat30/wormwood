@@ -89,6 +89,6 @@ public class Alias {
 	}
 
    public String toString () {
-      return "Usage: Alias <alias_name> <command_name> <command_paramater(s)>\nCreates an alias for a game command. For example, if you would rather type 'n' instead of 'move n', you could use the alias command as follows: alias n move n."
+      return "Usage: Alias <alias_name> <command_name> <command_paramater(s)>\nCreates an alias for a game command. For example, if you would rather type 'n' instead of 'move n', you could use the alias command as follows: alias n move n.";
    }
 }

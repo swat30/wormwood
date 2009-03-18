@@ -1,21 +1,16 @@
 package obj;
 import core.Output;
 
-public class Exit {
+public class Exit extends Entity {
    private boolean passable;
    private boolean locked;
-   private String name;
    private Room[] rooms;
 
    public Exit (boolean passable, boolean locked, String name) {
       this.locked = locked;
       this.passable = passable;
-      this.name = name;
       this.rooms = new Room[2];
-   }
-
-   public String getName() {
-      return name;
+      setName(name);
    }
 
    public boolean isPassable() {
@@ -41,7 +36,7 @@ public class Exit {
 			   return;
 		   }
 	   }
-	   Output.error("Exit '"+name+"' already has two rooms linked.");
+	   Output.error("Exit '"+getName()+"' already has two rooms linked.");
    }
    
    public Room[] getRooms(){
