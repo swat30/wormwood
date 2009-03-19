@@ -25,7 +25,7 @@ public class Create {
 		Command kate = new Kate();
       String[] sriniIdentifiers = new String[1];
       sriniIdentifiers[0] = "man";
-      NPC srini = new NPC("Srini", sriniIdentifiers , "The Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
+      NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
 	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground.", 3, kate);
 	   Item[] items = {gun};
       NPC[] npcs = {srini};
@@ -41,10 +41,10 @@ public class Create {
 		g1.add(r3, 1, 1);
 		g1.add(r4, 4, 4);
 		g1.add(r5, 2, 0);
-		g1.linkRooms(r1, r2, true, false, "East-west gate");
-		g1.linkRooms(r2, r3, true, true, "Locked door");
-		g1.linkRooms(r2, r5, false, false, "Door blocked by large pile of cement blocks");
-		g1.linkRooms(r1, r4, true, true, "Impossible");
+		g1.linkRooms(r1, r2, true, false, "e", "A gate made of faded copper.", "There is a gate to the east.");
+		g1.linkRooms(r2, r3, true, true, "w", "This door is locked.", "There is a door to the west.");
+		g1.linkRooms(r2, r5, false, false, "n", "There is a door behind the blocks, but you can't get to it.", "There is a large pile of cement blocks to the north.");
+		g1.linkRooms(r1, r4, true, true, "s", "This door appears to be locked AND blocked.", "There is a door to the south.");
 		
 		map.add(g1);
 		

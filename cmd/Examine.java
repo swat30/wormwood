@@ -1,6 +1,8 @@
 package cmd;
 import core.Output;
 import obj.Item;
+import obj.Exit;
+import core.Grid;
 import obj.NPC;
 import obj.Player;
 import obj.Room;
@@ -14,11 +16,14 @@ public class Examine implements Command {
    public void exec (Player p) {
       NPC npc = null;
       Item i = null;
+      Exit e = null;
       Room r = p.getRoom();
+      Grid g = p.getGrid();
 
       // Defaults to checking room first
       i = r.getItem(object);
       npc = r.getNPC(object);
+      e = g.getExit(r, this.object);
       
       // If the object is not in the room, it might be an item
       // held in the player's inventory
@@ -31,6 +36,9 @@ public class Examine implements Command {
       // If it was an NPC
       else if (npc != null)
          Output.println(npc);
+      // If it was an Exit
+      else if (e != null)
+         Output.println(e);
       else
          Output.println(object + " not found.");
    }

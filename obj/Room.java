@@ -104,6 +104,8 @@ public class Room extends Entity {
          for (int i = 0; i < npcs.size(); i++) 
             npcString = npcString + " " + npcs.get(i).getRoomDesc();
 
+      // If there are exits in the room
+
       return getDesc() + npcString + itemString;
    }
 }	
