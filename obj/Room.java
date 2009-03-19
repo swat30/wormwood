@@ -78,11 +78,11 @@ public class Room extends Entity {
       npcs.remove(npc);
    }
    
-   public NPC getNPC (String NPCName) {
+   public NPC getNPC (String NPCIdent) {
       NPC n = null;
 
       for (int i = 0; i < npcs.size(); i++) 
-         if (NPCName.equals(npcs.get(i).getName()))
+         if (npcs.get(i).hasIdentifier(NPCIdent))
             n = npcs.get(i);
 
       return n;

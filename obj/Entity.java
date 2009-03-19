@@ -1,22 +1,23 @@
 package obj;
 
+import java.util.ArrayList;
+
 public class Entity {
    private String name;
    private String desc;
    private String roomDesc;
    private boolean visible;
+   private ArrayList<String> identifiers = new ArrayList<String>();
 
    /** Sets the object's name. */
    public void setName (String name) {
       this.name = name;
+      addIdentifier(name);
    }
 
    /** @return object's Name (in all lowercase). */
    public String getName () {
-      // The Parser always makes the Strings entered lowercase
-      // To ease matching the strings, all entities return their
-      // names as lower case.
-      return this.name.toLowerCase();
+      return this.name;
    }
 
    /** Sets object's description, which is printed when the object is examined. */
@@ -57,6 +58,43 @@ public class Entity {
    * changes. */
    public void makeInvisible () {
       this.visible = false;
+   }
+
+   /** Sets the identifiers for the entity. 
+    * Identifiers are another way of getting access to an entity.
+    * For example, you might have an NPC with the identifiers
+    * John, and man. They both will give you access to the same
+    * object. If the game first introduces the player to the NPC
+    * only as man, they obviously won't know that the man's name is
+    * John. Therefore, they need a way to interact with the character
+    * without knowing the character's name. For example, examine man.
+    * Identifiers to the rescue! */
+   public void setIdentifiers(String[] ident) {
+      for (int i = 0; i < ident.length; i++)
+         this.identifiers.set(i, ident[i]);
+   }
+
+   /** Adds an identifier to the entity. */
+   public void addIdentifier(String ident) {
+      this.identifiers.add(ident);
+   }
+
+   /** Adds a list of identifiers to the entity. */
+   public void addIdentifiers(String[] ident) {
+      for (int i = 0; i < ident.length; i++) 
+         this.identifiers.add(ident[i]);
+   }
+
+   /** @return Returns true if the Entity has the identifier specified,
+    * false if it doesn't. */
+   public boolean hasIdentifier (String name) {
+      // Look for the identifier desired in the list
+      for (int i = 0; i < this.identifiers.size(); i++)
+         if (name.equalsIgnoreCase(identifiers.get(i)))
+               return true;
+
+      // The search was not successful
+      return false;
    }
 
    /** @return object's description. */
