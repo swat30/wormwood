@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import obj.Item;
 import obj.Player;
 import obj.Room;
+import core.Output;
 
 public class Take implements Command {
    private String name;
@@ -20,13 +21,13 @@ public class Take implements Command {
       i = r.getItem(name);
       
       if (i != null) {
-         System.out.println("You picked up " + i.getName() + ".");
+         Output.println("You picked up " + i.getName() + ".");
          p.addToInventory(i);
          r.removeItem(i);
       }
 
       else 
-         System.out.println("Unable to pick up " + name + ".");
+         Output.println("Unable to pick up " + name + ".");
    }
 
    public void construct(String params[]){

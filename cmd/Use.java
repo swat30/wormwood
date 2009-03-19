@@ -16,7 +16,7 @@ public class Use implements Command {
          else  
             Output.println("You can't use this item anymore.");
       else 
-         System.out.println("You don't have this item.");
+         Output.println("You don't have this item.");
    }
 
    public void construct(String params[]){

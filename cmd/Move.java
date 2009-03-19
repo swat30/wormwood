@@ -20,7 +20,7 @@ public class Move implements Command {
     	 Room newRoom = e.getDestRoom(r);
          player.setRoom(newRoom);
          // Print the description of the room
-         System.out.println(newRoom);
+         Output.println(newRoom);
       }
       else
          Output.println("You cannot go that way.");

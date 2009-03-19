@@ -1,11 +1,12 @@
 package cmd;
 import core.Input;
+import core.Output;
 import obj.Player;
 import iface.Command;
 
 public class Quit implements Command {
    public void exec (Player p) {
-      System.out.println("Are you sure you wish to quit? (y/n)");
+      Output.println("Are you sure you wish to quit? (y/n)");
       String answer;
       answer = Input.nextLine(); 
 
@@ -15,7 +16,7 @@ public class Quit implements Command {
       else if (answer.matches("n") || answer.matches("N"));
       // User entered invalid input
       else 
-         System.out.println("You must answer with y or n.");
+         Output.println("You must answer with y or n.");
    }
    
    public String toString () {
