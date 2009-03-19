@@ -30,9 +30,8 @@ public class Game {
       System.out.println(p.getRoom());
    }
 
-   /** The main user-game interaction is getting input
-    * from the keyboard at the prompt - the prompt then
-    * executes this input. */
+    /** The prompt gets user input from the keyboard. 
+     * The input is then executed. */
    public void prompt () {
       System.out.print("> ");
 
