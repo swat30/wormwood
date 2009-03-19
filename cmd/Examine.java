@@ -1,4 +1,5 @@
 package cmd;
+import core.Output;
 import obj.Item;
 import obj.NPC;
 import obj.Player;
@@ -26,10 +27,12 @@ public class Examine implements Command {
       
       // If the object was found in inventory or in room
       if (i != null)
-         System.out.println(i);
+         Output.println(i);
       // If it was an NPC
       else if (npc != null)
-         System.out.println(npc);
+         Output.println(npc);
+      else
+         Output.println(object + " not found.");
    }
 
    public void construct(String params[]){

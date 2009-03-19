@@ -23,13 +23,15 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
+      NPC srini = new NPC("Srini", "The Java King.");
 	   Item gun = new Item("gun", "a frikkin gun", 3, kate);
 	   Item[] items = {gun};
+      NPC[] npcs = {srini};
 		Room r5 = new Room("North Forrest", "Northerly!");
 		Room r2 = new Room("East Forrest", "Easterly!");
 		Room r3 = new Room("West Forrest", "Westerly!");
 		Room r4 = new Room("South Forrest", "Southerly!");
-		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items);
+		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items, npcs);
 		
 		Grid g1 = new Grid(20, 20);
 		g1.add(r1, 0, 0);

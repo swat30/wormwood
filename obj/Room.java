@@ -92,6 +92,7 @@ public class Room extends Entity {
     * can be printed by a simple System.out.println(room); */
    public String toString() {
       String s = "";
+      String npc = "";
 
       // If there are items in the room
       if (items.size() > 0) {
@@ -106,6 +107,18 @@ public class Room extends Entity {
          }
       }
 
-      return getDesc() + s;
+      if (npcs.size() > 0) {
+         npc = " The following people are in the room: ";
+
+         for (int i = 0; i < npcs.size(); i++) {
+            // If it's the last time
+            if (i == (npcs.size() - 1) )
+               npc = npc + npcs.get(i).getName() + ".";
+            else 
+               npc = npc + npcs.get(i).getName() + ",";
+         }
+
+      }
+      return getDesc() + s + npc;
    }
 }	
