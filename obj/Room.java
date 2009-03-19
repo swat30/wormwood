@@ -51,11 +51,11 @@ public class Room extends Entity {
       items.remove(i);
    }
    
-   public Item getItem (String itemName) {
+   public Item getItem (String itemIdent) {
       Item item = null;
 
       for (int i = 0; i < items.size(); i++) 
-         if (itemName.equals(items.get(i).getName()))
+         if (items.get(i).hasIdentifier(itemIdent))
             item = items.get(i);
 
       return item;
