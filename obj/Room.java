@@ -51,11 +51,11 @@ public class Room extends Entity {
       items.remove(i);
    }
    
-   public Item getItem (String itemName) {
+   public Item getItem (String itemIdent) {
       Item item = null;
 
       for (int i = 0; i < items.size(); i++) 
-         if (itemName.equals(items.get(i).getName()))
+         if (items.get(i).hasIdentifier(itemIdent))
             item = items.get(i);
 
       return item;
@@ -78,11 +78,11 @@ public class Room extends Entity {
       npcs.remove(npc);
    }
    
-   public NPC getNPC (String NPCName) {
+   public NPC getNPC (String NPCIdent) {
       NPC n = null;
 
       for (int i = 0; i < npcs.size(); i++) 
-         if (NPCName.equals(npcs.get(i).getName()))
+         if (npcs.get(i).hasIdentifier(NPCIdent))
             n = npcs.get(i);
 
       return n;
@@ -91,34 +91,19 @@ public class Room extends Entity {
    /** overrides the generic java toString, so that the Room's description
     * can be printed by a simple System.out.println(room); */
    public String toString() {
-      String s = "";
-      String npc = "";
+      String itemString = "";
+      String npcString = "";
 
       // If there are items in the room
-      if (items.size() > 0) {
-         s = " You see these items: "; 
+      if (items.size() > 0) 
+         for (int i = 0; i < items.size(); i++) 
+            itemString = itemString + " " + items.get(i).getRoomDesc(); 
 
-         for (int i = 0; i < items.size(); i++) {
-            // If it's the last time
-            if (i == (items.size() - 1) )
-               s = s + items.get(i).getName() + ".";
-            else 
-               s = s + items.get(i).getName() + ",";
-         }
-      }
+      // If there are npc's in the room
+      if (npcs.size() > 0) 
+         for (int i = 0; i < npcs.size(); i++) 
+            npcString = npcString + " " + npcs.get(i).getRoomDesc();
 
-      if (npcs.size() > 0) {
-         npc = " The following people are in the room: ";
-
-         for (int i = 0; i < npcs.size(); i++) {
-            // If it's the last time
-            if (i == (npcs.size() - 1) )
-               npc = npc + npcs.get(i).getName() + ".";
-            else 
-               npc = npc + npcs.get(i).getName() + ",";
-         }
-
-      }
-      return getDesc() + s + npc;
+      return getDesc() + npcString + itemString;
    }
 }	
