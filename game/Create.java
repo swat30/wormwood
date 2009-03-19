@@ -23,8 +23,8 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
-      NPC srini = new NPC("Srini", "The Java King.");
-	   Item gun = new Item("gun", "a frikkin gun", 3, kate);
+      NPC srini = new NPC("Srini", "The Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
+	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground, in between the roots of the trees.", 3, kate);
 	   Item[] items = {gun};
       NPC[] npcs = {srini};
 		Room r5 = new Room("North Forrest", "Northerly!");
