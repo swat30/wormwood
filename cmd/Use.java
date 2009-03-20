@@ -1,6 +1,7 @@
 package cmd;
 import obj.Item;
 import obj.Player;
+import core.Output;
 import iface.Command;
 
 public class Use implements Command {
@@ -9,10 +10,13 @@ public class Use implements Command {
    public void exec (Player p) {
       Item item = p.getItem(itemName);
 
-      if (item != null && item.getNumUses() > 0)
-         item.use(p);
+      if (item != null)
+         if (item.getNumUses() > 0)
+            item.use(p);
+         else  
+            Output.println("You can't use this item anymore.");
       else 
-         System.out.println("You can't use this item anymore.");
+         Output.println("You don't have this item.");
    }
 
    public void construct(String params[]){

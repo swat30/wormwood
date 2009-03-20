@@ -2,6 +2,7 @@ package cmd;
 import obj.Item;
 import obj.Player;
 import obj.Room;
+import core.Output;
 import iface.Command;
 
 public class Drop implements Command {
@@ -15,11 +16,14 @@ public class Drop implements Command {
       // If the item was dropped
       if (removed == true) {
          // Drop it into the room 
+         // The original room description won't apply anymore, 
+         // as it has been picked up and dropped
+         item.setRoomDesc("There is a " + item.getName() + " lying on the ground.");
          r.addItem(item);
-         System.out.println("You dropped " + itemName + ".");
+         Output.println("You dropped " + itemName + ".");
       }
       else 
-         System.out.println("You don't have a " + itemName + " to drop.");
+         Output.println("You don't have a " + itemName + " to drop.");
    }
 
    public void construct(String params[]){
