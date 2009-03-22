@@ -1,12 +1,9 @@
 package obj;
 
 public class NPC extends Entity {
-   /** Create an NPC with a specified name and description. */
+   /** Create an NPC using the full Entity constructor. */
    public NPC (String name, String[] identifiers, String description, String roomDescription) {
-      setName(name);
-      setDesc(description);
-      setRoomDesc(roomDescription);
-      addIdentifiers(identifiers);
+      super(name, identifiers, description, roomDescription);
    }
 }
 
