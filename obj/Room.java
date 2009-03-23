@@ -6,32 +6,32 @@ public class Room extends Entity {
    private ArrayList<Item> items = new ArrayList<Item>(); 
    private ArrayList<NPC> npcs = new ArrayList<NPC>();
 
+   /** Full constructor. */
    public Room (String name, String desc, Item[] items, NPC[] npcs) {
-      setName(name);
-      setDesc(desc);
+      super(name, desc);
       setItems(items);
       setNPCs(npcs);
    }
    
+   /** Constructor missing npcs. */
    public Room (String name, String desc, Item[] items)  {
-      setName(name);
-      setDesc(desc);
+      super(name, desc);
       setItems(items);
    }
 
+   /** Constructor with just name and description. */
    public Room (String name, String desc) {
-      setName(name);
-      setDesc(desc);
+      super(name, desc);
    }
    
+   /** Constructor with just a name. */
    public Room (String name) {
-      setName(name);
-      setDesc("Generic Room.");
+      super(name, "A Generic Room.");
    }
 
+   /** Blank constructor. Defaults name to Room. */
    public Room () {
-      setDesc("Generic Room.");
-      setName("Room");
+      super("Generic Room", "A Generic Room.");
    }
 
    public void setItems (Item[] items) {

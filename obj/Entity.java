@@ -9,6 +9,30 @@ public class Entity {
    private boolean visible;
    private ArrayList<String> identifiers = new ArrayList<String>();
  
+   /** Default blank constructor. */
+   public Entity () {}
+
+   /** Full constructor. */
+   public Entity (String name, String[] identifiers, String description, String roomDescription){
+      setName(name);
+      setDesc(description);
+      setRoomDesc(roomDescription);
+      addIdentifiers(identifiers);
+   }
+
+   /** Constructor, missing identifiers. */
+   public Entity (String name, String description, String roomDescription) {
+      setName(name);
+      setDesc(description);
+      setRoomDesc(roomDescription);
+   }
+
+   /** Constructor, missing identifiers and roomDesc.*/
+   public Entity (String name, String description) {
+      setName(name);
+      setDesc(description);
+   }
+   
    /** Sets the object's name. */
    public void setName (String name) {
       this.name = name;

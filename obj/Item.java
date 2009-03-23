@@ -7,9 +7,7 @@ public class Item extends Entity {
 
    /** Creates a new item. */
    public Item (String name, String description, String roomDescription, int numUses, Command cmd) {
-      setName(name);
-      setDesc(description);
-      setRoomDesc(roomDescription);
+      super(name, description, roomDescription);
       setCmd(cmd);
       setNumUses(numUses);
    }
