@@ -83,7 +83,7 @@ public class Grid {
 			int[] coordinates = this.getCoord(p);
 			return this.points[coordinates[0]+xOffset][coordinates[1]+yOffset];
 		} catch(Exception e){
-			Output.error("The grid ends before/att the specified offset from \""+p.getName()+"\".");
+			Output.error("The grid ends before/at the specified offset from \""+p.getName()+"\".");
 		}
 		return null;
 	}
