@@ -75,4 +75,7 @@ public class Player extends Character {
    public Grid getGrid(){
 	   return this.curGrid;
    }
+   public ArrayList<Item> getInventory(){
+           return this.inventory;
+   }
 }
