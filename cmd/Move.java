@@ -5,6 +5,7 @@ import obj.Exit;
 import obj.Player;
 import obj.Room;
 import iface.Command;
+import cmd.Look;
 
 public class Move implements Command {
    private String dir;
@@ -14,13 +15,14 @@ public class Move implements Command {
       Room r = player.getRoom(); // A null room is returned if the exit doesn't exist
       Grid g = player.getGrid();
       Exit e = g.getExit(r, this.dir);
+      Look l = new Look();
 
       // If the room is passable and not locked
       if (e != null && (e.isPassable() && !e.isLocked())) {
     	   Room newRoom = e.getDestRoom(r);
          player.setRoom(newRoom);
          // Print the description of the room
-         Output.println(newRoom);
+         l.exec(player);
       }
       else if (e != null && (!e.isPassable() || e.isLocked()))
          // Print description of exit if it exists but is 

@@ -22,12 +22,13 @@ public class Game {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
       clearScreen();
+      Look l = new Look();
       this.map = Create.init();
       Room startRoom = this.map.get(0).getStart();
       p = new Player(this.map.get(0), startRoom);
       System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
-      System.out.println(p.getRoom());
+      l.exec(p);
    }
 
     /** The prompt gets user input from the keyboard. 
