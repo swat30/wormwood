@@ -29,8 +29,11 @@ public class Create {
 	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground.", 3, kate);
 	   Item[] items = {gun};
       NPC[] npcs = {srini};
+           // new item to test inventory MUST REMOVE LATER
+           Item weed = new Item("weed", "a really big bag of pot", "Sick dude you found some weed!", 5, kate);
+           Item[] items2 = {weed};
 		Room r5 = new Room("North Forrest", "Northerly!");
-		Room r2 = new Room("East Forrest", "Easterly!");
+		Room r2 = new Room("East Forrest", "Easterly!", items2);
 		Room r3 = new Room("West Forrest", "Westerly!");
 		Room r4 = new Room("South Forrest", "Southerly!");
 		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items, npcs);
