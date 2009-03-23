@@ -23,8 +23,7 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
-      String[] sriniIdentifiers = new String[1];
-      sriniIdentifiers[0] = "man";
+      String[] sriniIdentifiers = {"man", "dude", "prof", "l33t"};
       NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
 	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground.", 3, kate);
 	   Item[] items = {gun};
