@@ -35,4 +35,44 @@ public class handleData {
 		
 		return newString;
 	}
+	
+	/**
+	 * arrToString
+	 * Converts an array into a string in a list format
+	 * @return array listed as string
+	 */
+	public static String arrToString(String[] s){
+		String rtn = "";
+		int last = getLastIndex(s);
+		
+		for(int i = 0; i <= last; i++){
+			if(s[i] != null){
+				//Inserts an and if it is the last element and there are other elements
+				if(i == last && !rtn.equalsIgnoreCase(""))
+					rtn += "and ";
+				rtn += s[i];
+				
+				if(i != last)
+					rtn += ", ";
+			}
+		}
+		
+		return rtn;
+	}
+	
+	/**
+	 * getLastIndex
+	 * Gets the last none-null index of the array
+	 * @retun last populated index. If the array is empty, -1 is returned
+	 */
+	public static int getLastIndex(Object[] arr){
+		int last = -1;
+		
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] != null)
+				last = i;
+		}
+		
+		return last;
+	}
 }
