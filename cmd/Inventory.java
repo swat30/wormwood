@@ -6,7 +6,13 @@ import iface.Command;
 
 public class Inventory implements Command {
 	public void exec (Player p) {
-		Output.println(p.getInventory());       
+		int num = 0;
+		String str = "";
+		for(int i=0;i<p.getInventory().size();i++){
+			num++;
+			str += num+".\t"+p.getInventory().get(i)+"\n";
+		}
+		Output.println(str);       
 	}
    
 	public void construct(String params[]){}
