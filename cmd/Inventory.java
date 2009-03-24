@@ -7,12 +7,14 @@ import iface.Command;
 public class Inventory implements Command {
 	public void exec (Player p) {
 		int num = 0;
-		String str = "";
+    
 		for(int i=0;i<p.getInventory().size();i++){
 			num++;
-			str += num+".\t"+p.getInventory().get(i)+"\n";
+         Output.println(num + ". " + p.getInventory().get(i).getName() + " - " + p.getInventory().get(i));
 		}
-		Output.println(str);       
+
+      if (p.getInventory().size() == 0) 
+         Output.println("You are not carrying any items.");
 	}
    
 	public void construct(String params[]){}
@@ -20,6 +22,6 @@ public class Inventory implements Command {
 	public void setName (String n) {}
 
 	public String toString () {
-		return "Usage: Look\nPrints a list of items that the player has on them.";
+		return "Usage: Inventory\nPrints a list of the items and their descriptions that the player is carrying.";
 	}
 }
