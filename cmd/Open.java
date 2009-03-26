@@ -16,9 +16,9 @@ public class Open implements Command {
 	  Exit e = g.getExit(r, this.dir);
 	
 	  // A null room is returned if the exit doesn't exist
-      if (e != null && e.getName() == name) {
+      if (e != null) {
          if (e.isPassable()) 
-            System.out.println("Nothing to open here.");
+            System.out.println("The " + e.getName() + " is already open.");
          else if (e.isLocked())
             System.out.println("Locked.");
          else if (e.isPassable() == false && e.isLocked() == false)
@@ -30,7 +30,11 @@ public class Open implements Command {
    }
 
    public void construct(String params[]){
-	   
+	   if (params.length > 0) {
+         setDir(params[0]);
+         if (params.length == 2)
+            setName(params[1]);
+      }
    }
    
    public void setDir (String d) {

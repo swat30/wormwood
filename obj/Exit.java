@@ -6,13 +6,11 @@ public class Exit extends Entity {
    private boolean locked;
    private Room[] rooms;
 
-   public Exit (boolean passable, boolean locked, String name, String desc, String roomDesc) {
+   public Exit (boolean passable, boolean locked, String name, String desc) {
+      super(name, desc);
       setLocked(locked);
       setPassable(passable);
       this.rooms = new Room[2];
-      setName(name);
-      setDesc(desc);
-      setRoomDesc(roomDesc);
    }
 
    public boolean isPassable() {

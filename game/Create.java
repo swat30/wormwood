@@ -43,10 +43,10 @@ public class Create {
 		g1.add(r3, 1, 1);
 		g1.add(r4, 4, 4);
 		g1.add(r5, 2, 0);
-		g1.linkRooms(r1, r2, true, false, "e", "A gate made of faded copper.", "There is a gate to the east.");
-		g1.linkRooms(r2, r3, true, true, "w", "This door is locked.", "There is a door to the west.");
-		g1.linkRooms(r2, r5, false, false, "n", "There is a door behind the blocks, but you can't get to it.", "There is a large pile of cement blocks to the north.");
-		g1.linkRooms(r1, r4, true, true, "s", "This door appears to be locked AND blocked.", "There is a door to the south.");
+		g1.linkRooms(r1, r2, true, false, "gate", "A gate made of faded copper.");
+		g1.linkRooms(r2, r3, false, true, "door", "This door is locked.");
+		g1.linkRooms(r2, r5, false, true, "door", "There is a door behind a large pile of blocks, but you can't get to it.");
+		g1.linkRooms(r1, r4, true, true, "door", "This door appears to be locked AND blocked.");
 		
 		map.add(g1);
 		
