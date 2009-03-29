@@ -1,57 +1,39 @@
 package obj;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import core.Grid;
-import core.Input;
 
-public class Player {
-   private String name;
-   private int age;
-   private String gender;
-   private Vector<Item> inventory = new Vector();
+public class Player extends Character {
+   private ArrayList<Item> inventory = new ArrayList();
    private Item curItem = null;
    private Room curRoom;
    private Grid curGrid;
 
-   /** Initializes basic player characteristics, such as name, etc. */
-   public Player(boolean getInfo, Grid startingGrid, Room startingRoom) {
-      System.out.print("Enter a character name: ");
-      name = Input.nextLine();
-      System.out.println("Okay... you are " + name + ".");
-       
-      System.out.print("Enter an age: ");
-      age = Input.nextInt();
-      if (age < 0)  
-         System.out.println("You're *too* young!");
-      else if (age < 5)
-         System.out.println("Baaaaby!");
-      else if (age <= 80)
-         System.out.println("Alright... I guess you're " + age + ".");
-      else
-         System.out.println("Are you really THAT old?!");
-
-      System.out.print("Enter a gender: ");
-      gender = Input.nextLine();
-      
-      curRoom = startingRoom;
-      this.curGrid = startingGrid;
+   /** Initializes basic player characteristics, such as name, gender, etc. 
+    * Sets the starting grid and room. */
+   public Player(String name, int age, String gender, Grid startingGrid, Room startingRoom) {
+      setName(name);
+      setAge(age);
+      setGender(gender);
+      setRoom(startingRoom);
+      setGrid(startingGrid);
    }
    
    public Player (Grid startingGrid, Room startingRoom) {
-      name = "buttface";
-      age = 56;
-      gender = "Neutral";
-
-      curRoom = startingRoom;
-      this.curGrid = startingGrid;
+      setName("Johnny Neutral");
+      setAge(20);
+      setGender("Neutral");
+      setRoom(startingRoom);
+      setGrid(startingGrid);
    }
       
+   
    public void setCurItem (Item i) {
       // Ultimately should check if item is in player's inventory
-      curItem = i;
+      this.curItem = i;
    }
 
-   /** Returns a specific item from the player's inventory
+   /**@Return A specific item from the player's inventory
     * If the item is not found, null is returned instead.*/
    public Item getItem (String itemName) {
       Item item = null;
@@ -64,7 +46,7 @@ public class Player {
    }
 
    public void addToInventory (Item i) {
-      inventory.add(i);
+      this.inventory.add(i);
    }
 
    // Returns true if item was removed, false if not
@@ -79,11 +61,11 @@ public class Player {
    }
 
    public void setRoom (Room newRoom) {
-      curRoom = newRoom;
+      this.curRoom = newRoom;
    }
 
    public Room getRoom() {
-      return curRoom;
+      return this.curRoom;
    }
    
    public void setGrid(Grid newGrid){
@@ -93,12 +75,7 @@ public class Player {
    public Grid getGrid(){
 	   return this.curGrid;
    }
-
-   public void setGender(String g) {
-      gender = g;
-   }
-
-   public String getGender() {
-      return gender;
+   public ArrayList<Item> getInventory(){
+           return this.inventory;
    }
 }

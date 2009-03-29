@@ -1,4 +1,5 @@
 #!/bin/bash
-mkdir bin
-find ./*/*.java -exec javac -d bin {} \;
-find *.java -exec javac -d bin {} \;
+mkdir ../bin/
+javac -d ../bin *.java
+javac -d ../bin .*/*.java
+javac -d ../bin cmd/*.java

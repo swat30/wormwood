@@ -22,17 +22,17 @@ public class Game {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
       clearScreen();
+      Look l = new Look();
       this.map = Create.init();
       Room startRoom = this.map.get(0).getStart();
       p = new Player(this.map.get(0), startRoom);
       System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
-      System.out.println(p.getRoom());
+      l.exec(p);
    }
 
-   /** The main user-game interaction is getting input
-    * from the keyboard at the prompt - the prompt then
-    * executes this input. */
+    /** The prompt gets user input from the keyboard. 
+     * The input is then executed. */
    public void prompt () {
       System.out.print("> ");
 

@@ -83,7 +83,7 @@ public class Grid {
 			int[] coordinates = this.getCoord(p);
 			return this.points[coordinates[0]+xOffset][coordinates[1]+yOffset];
 		} catch(Exception e){
-			Output.error("The grid ends before/att the specified offset from \""+p.getName()+"\".");
+			Output.error("The grid ends before/at the specified offset from \""+p.getName()+"\".");
 		}
 		return null;
 	}
@@ -125,11 +125,11 @@ public class Grid {
 	}
 	
 	/** 'Links' two rooms using an exit */
-	public void linkRooms(Room r1, Room r2, boolean passable, boolean locked, String name){
+	public void linkRooms(Room r1, Room r2, boolean passable, boolean locked, String name, String desc){
 		int[] offset = this.getOffset(r1, r2);
 		if(this.isOnGrid(r1) && this.isOnGrid(r2)){
 			if(Math.abs(offset[0]) == 1 || Math.abs(offset[1]) == 1){
-				Exit link = new Exit(passable, locked, name);
+				Exit link = new Exit(passable, locked, name, desc);
 				link.link(r1);
 				link.link(r2);
 				this.exits.add(link);

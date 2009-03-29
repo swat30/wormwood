@@ -1,54 +1,40 @@
 package obj;
 import iface.Command;
 
-public class Item {
-   private String name;
-   private String desc;
+public class Item extends Entity {
    private Command cmd;
    private int numUses;
 
-   public Item (String name, String description, int numUses, Command cmd) {
-      setName(name);
-      setDesc(description);
+   /** Creates a new item. */
+   public Item (String name, String description, String roomDescription, int numUses, Command cmd) {
+      super(name, description, roomDescription);
       setCmd(cmd);
       setNumUses(numUses);
    }
 
-   public void setName (String n) {
-      name = n;
-   }
-
-   public void setDesc (String d) {
-      desc = d;
-   }
-
+   /** Sets the command that the item is associated with. */
    public void setCmd (Command c) {
       cmd = c;
    }
 
+   /** Sets how many times the item can be used. */
    public void setNumUses (int n) {
       numUses = n;
    }
 
-   public String getName () {
-      return name;
-   }
-
-   public String getDesc () {
-      return desc;
-   }
-
+   /**@return: The command that the item performs when used.*/
    public Command getCmd () {
       return cmd;
-  }
+   }
 
+   /**@return: How many uses the item has left. */
    public int getNumUses () {
       return numUses;
    }
 
-   /** The item has a command assoicated with it
-    * Each instance of an item has a unique command
-    * This is invoked by calling this use method
+   /** The item has a command assoicated with it.
+    * Each instance of an item has a unique command.
+    * This is invoked by calling this use method.
     * The use method is called by the Use class,
     * which is a general command, so that "use item"
     * can be called instead of the specific command
@@ -56,9 +42,5 @@ public class Item {
    public void use (Player p) {
       cmd.exec(p);
       numUses--;
-   }
-   
-   public String toString () {
-      return name + ": " + desc;
    }
 }

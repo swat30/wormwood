@@ -5,24 +5,31 @@ import obj.Exit;
 import obj.Player;
 import obj.Room;
 import iface.Command;
+import cmd.Look;
 
 public class Move implements Command {
    private String dir;
 
    public void exec (Player player) {
       // Get current room to find exits
-      Room r = player.getRoom();
+      Room r = player.getRoom(); // A null room is returned if the exit doesn't exist
       Grid g = player.getGrid();
       Exit e = g.getExit(r, this.dir);
+      Look l = new Look();
 
-      // A null room is returned if the exit doesn't exist
-      if (e != null) {
-    	 Room newRoom = e.getDestRoom(r);
+      // If the room is passable and not locked
+      if (e != null && (e.isPassable() && !e.isLocked())) {
+    	   Room newRoom = e.getDestRoom(r);
          player.setRoom(newRoom);
          // Print the description of the room
-         System.out.println(newRoom);
+         l.exec(player);
       }
-      else
+      else if (e != null && (!e.isPassable() || e.isLocked()))
+         // Print description of exit if it exists but is 
+         // not passable or is locked
+         Output.println(e);
+      else 
+         // The exit does not exist
          Output.println("You cannot go that way.");
    }
 

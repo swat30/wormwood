@@ -23,13 +23,19 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
-	   Item gun = new Item("gun", "a frikkin gun", 3, kate);
+      String[] sriniIdentifiers = {"man", "dude", "prof", "l33t"};
+      NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
+	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground.", 3, kate);
 	   Item[] items = {gun};
+      NPC[] npcs = {srini};
+           // new item to test inventory MUST REMOVE LATER
+           Item weed = new Item("weed", "a really big bag of pot", "Sick dude you found some weed!", 5, kate);
+           Item[] items2 = {weed};
 		Room r5 = new Room("North Forrest", "Northerly!");
-		Room r2 = new Room("East Forrest", "Easterly!");
+		Room r2 = new Room("East Forrest", "Easterly!", items2);
 		Room r3 = new Room("West Forrest", "Westerly!");
 		Room r4 = new Room("South Forrest", "Southerly!");
-		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items);
+		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items, npcs);
 		
 		Grid g1 = new Grid(20, 20);
 		g1.add(r1, 0, 0);
@@ -37,10 +43,10 @@ public class Create {
 		g1.add(r3, 1, 1);
 		g1.add(r4, 4, 4);
 		g1.add(r5, 2, 0);
-		g1.linkRooms(r1, r2, true, false, "East-west gate");
-		g1.linkRooms(r2, r3, true, true, "Locked door");
-		g1.linkRooms(r2, r5, false, false, "Door blocked by large pile of cement blocks");
-		g1.linkRooms(r1, r4, true, true, "Impossible");
+		g1.linkRooms(r1, r2, true, false, "gate", "A gate made of faded copper.");
+		g1.linkRooms(r2, r3, false, true, "door", "This door is locked.");
+		g1.linkRooms(r2, r5, false, true, "door", "There is a door behind a large pile of blocks, but you can't get to it.");
+		g1.linkRooms(r1, r4, true, true, "door", "This door appears to be locked AND blocked.");
 		
 		map.add(g1);
 		
