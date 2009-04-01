@@ -5,7 +5,6 @@ package obj;
 import java.util.ArrayList;
 
 public class Room extends Entity {
-   private ArrayList<Entity> entities = new ArrayList<Entity>();
    private ArrayList<Item> items = new ArrayList<Item>(); 
    private ArrayList<NPC> npcs = new ArrayList<NPC>();
 
