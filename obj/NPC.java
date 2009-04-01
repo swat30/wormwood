@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package obj;
 
 public class NPC extends Entity {

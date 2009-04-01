@@ -1,7 +1,7 @@
 /**
  * Alias
  * Creates a new alias
- * params:
+ * Instance vars:
  * 		- name: stores name of alias
  * 		- command: stores command name
  * 		- [params[]]: stores parameter[s] to be passed

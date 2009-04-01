@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package iface;
 import obj.Player;
 

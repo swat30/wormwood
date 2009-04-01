@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package obj;
 import iface.Command;
 

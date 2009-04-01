@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package obj;
 import core.Output;
 

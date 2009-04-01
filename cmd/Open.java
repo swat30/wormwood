@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cmd;
 import core.Grid;
 import obj.Exit;
@@ -5,10 +8,21 @@ import obj.Player;
 import obj.Room;
 import iface.Command;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Open.
+ */
 public class Open implements Command {
+   
+   /** The name. */
    private String name;
+   
+   /** The dir. */
    private String dir;
 
+   /* (non-Javadoc)
+    * @see iface.Command#exec(obj.Player)
+    */
    public void exec (Player p) {
 	  // Get current room to find exits
 	  Room r = p.getRoom();
@@ -29,6 +43,9 @@ public class Open implements Command {
          System.out.println("Nothing to open here.");
    }
 
+   /* (non-Javadoc)
+    * @see iface.Command#construct(java.lang.String[])
+    */
    public void construct(String params[]){
 	   if (params.length > 0) {
          setDir(params[0]);
@@ -37,14 +54,23 @@ public class Open implements Command {
       }
    }
    
+   /* (non-Javadoc)
+    * @see iface.Command#setDir(java.lang.String)
+    */
    public void setDir (String d) {
       dir = d;
    }
 
+   /* (non-Javadoc)
+    * @see iface.Command#setName(java.lang.String)
+    */
    public void setName (String n) {
       name = n;
    }
 
+   /* (non-Javadoc)
+    * @see java.lang.Object#toString()
+    */
    public String toString () {
       return "Usage: Open <direction> <object>\nOpens a door (or other object, such as a box) that lies in the direction specified,";
    }

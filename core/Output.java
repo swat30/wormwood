@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package core;
 import game.Config;
 
