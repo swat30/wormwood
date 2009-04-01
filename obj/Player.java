@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import core.Grid;
 
 public class Player extends Character {
-   private ArrayList<Item> inventory = new ArrayList();
-   private Item curItem = null;
+   private ArrayList<Item> inventory = new ArrayList<Item>();
    private Room curRoom;
    private Grid curGrid;
 
@@ -28,12 +27,6 @@ public class Player extends Character {
       setGender("Neutral");
       setRoom(startingRoom);
       setGrid(startingGrid);
-   }
-      
-   
-   public void setCurItem (Item i) {
-      // Ultimately should check if item is in player's inventory
-      this.curItem = i;
    }
 
    /**@Return A specific item from the player's inventory
