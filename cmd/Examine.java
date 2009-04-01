@@ -1,4 +1,4 @@
-/*
+/**
  * 
  */
 package cmd;
@@ -11,20 +11,20 @@ import obj.Player;
 import obj.Room;
 import iface.Command;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Examine.
+ * The Examine Class:
  */
 public class Examine implements Command {
    
-   /** The object. */
+   /** The Examine Command */
    private String object;
 
-   /**
+   /** 
     * Each object that can be examined should have
     * a toString that will print relevant information.
     * 
-    * @param p the p
+    * @param p	the player calling examine
+    * @see obj.player
     */
    public void exec (Player p) {
       NPC npc = null;
@@ -56,7 +56,8 @@ public class Examine implements Command {
          Output.println(object + " not found.");
    }
 
-   /* (non-Javadoc)
+   /** 
+    * @param params[]	the parameters
     * @see iface.Command#construct(java.lang.String[])
     */
    public void construct(String params[]){
@@ -64,19 +65,21 @@ public class Examine implements Command {
          this.setName(params[0]);
    }
    
-   /* (non-Javadoc)
+   /** 
+    * @param d	the direction to be set
     * @see iface.Command#setDir(java.lang.String)
     */
    public void setDir (String d) {}
 
-   /* (non-Javadoc)
+   /** 
+    * @param objectToExamine	the object to be examined
     * @see iface.Command#setName(java.lang.String)
     */
    public void setName (String objectToExamine) {
       object = objectToExamine;
    }
 
-   /* (non-Javadoc)
+   /** 
     * @see java.lang.Object#toString()
     */
    public String toString () {
