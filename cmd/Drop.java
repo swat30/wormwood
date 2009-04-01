@@ -8,17 +8,22 @@ import obj.Room;
 import core.Output;
 import iface.Command;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Drop.
+ * The Drop Class.
  */
 public class Drop implements Command {
    
-   /** The item name. */
+   /** The Drop Command. */
    String itemName;
 
-   /* (non-Javadoc)
+   /** 
+    * When executed by a player, the drop command takes the item to be dropped from the players
+    * list of items (unless it's not present) and places it in the current rooms list of items.
+    *
+    * @param p	the player executing the Drop command.
     * @see iface.Command#exec(obj.Player)
+    * @see obj.Player
+    * @see obj.Room
     */
    public void exec (Player p) {
       Room r = p.getRoom();
@@ -38,27 +43,25 @@ public class Drop implements Command {
          Output.println("You don't have a " + itemName + " to drop.");
    }
 
-   /* (non-Javadoc)
+   /**
+    * @param params[]	the parameters taken for the drop command.
     * @see iface.Command#construct(java.lang.String[])
+    * @see core.Parser
     */
    public void construct(String params[]){
 	   if(params[0].length() > 0)
 		   this.setName(params[0]);   
    }
    
-   /* (non-Javadoc)
-    * @see iface.Command#setDir(java.lang.String)
-    */
-   public void setDir (String d) {}
-
-   /* (non-Javadoc)
+   /** 
+    * @param itemToDrop	the item to be dropped
     * @see iface.Command#setName(java.lang.String)
     */
    public void setName (String itemToDrop) {
       itemName = itemToDrop;
    }
 
-   /* (non-Javadoc)
+   /**
     * @see java.lang.Object#toString()
     */
    public String toString () {

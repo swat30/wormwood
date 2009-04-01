@@ -10,19 +10,19 @@ import obj.Player;
 import core.Output;
 import core.handleData;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Help.
+ * The Help Class.
  */
 public class Help implements Command {
    
-   /** The cmd name. */
+   /** The Help Command. */
    private String cmdName;
    
    /** The cmd dir. */
    private File cmdDir = new File("./cmd");
 
-   /* (non-Javadoc)
+   /** 
+    * @see obj.Player
     * @see iface.Command#exec(obj.Player)
     */
    public void exec (Player p) {
@@ -54,7 +54,7 @@ public class Help implements Command {
       }
    }
 
-   /* (non-Javadoc)
+   /** (non-Javadoc)
     * @see iface.Command#construct(java.lang.String[])
     */
    public void construct (String params[]) {
