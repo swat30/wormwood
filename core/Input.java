@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package core;
 import java.util.Scanner;
 

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package core;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -6,18 +9,38 @@ import iface.*;
 import cmd.*;
 import game.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Game.
+ */
 public class Game {
+   
+   /** The cmd. */
    private Object cmd;
+   
+   /** The gp. */
    private Parser gp;
+   
+   /** The p. */
    private Player p;
+   
+   /** The map. */
    private ArrayList<Grid> map;
 
+   /**
+    * Clear screen.
+    */
    public static void clearScreen() {
       for (int i = 0; i < 100; i++)
          System.out.println();
    }
 
    // Initialize some junk
+   /**
+    * Instantiates a new game.
+    * 
+    * @param VERSION the version
+    */
    public Game (String VERSION) {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
@@ -31,8 +54,10 @@ public class Game {
       l.exec(p);
    }
 
-    /** The prompt gets user input from the keyboard. 
-     * The input is then executed. */
+    /**
+     * The prompt gets user input from the keyboard.
+     * The input is then executed.
+     */
    public void prompt () {
       System.out.print("> ");
 
@@ -44,6 +69,9 @@ public class Game {
          executeCommand();
    }
 
+   /**
+    * Execute command.
+    */
    private void executeCommand () {
 	  try {
 		  Class tClass = cmd.getClass();

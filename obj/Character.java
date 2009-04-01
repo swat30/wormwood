@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package obj;
 
 public class Character extends Entity {
