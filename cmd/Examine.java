@@ -55,7 +55,7 @@ public class Examine implements Command {
    }
 
    public String toString () {
-      return "Usage: Examine <item_name>\nExamines an item in the player's inventory or lying in the room. If two items have the same name, it defaults to examining the room before the inventory.";
+      return "Usage: Examine <item_name>\nExamines an item in the player's inventory, an item lying in the room, or an NPC in the room. If two items have the same name, it defaults to examining the room before the inventory.";
    }
 }
 
