@@ -9,9 +9,8 @@ public class ww {
  
       Game g = new Game(VERSION);
  
-      boolean gameOn = true;
       // Main game loop
-      while (gameOn == true) {
+      while (Game.isAlive()) {
          g.prompt();
       }
   }

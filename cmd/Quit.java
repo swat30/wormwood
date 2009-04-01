@@ -6,6 +6,7 @@ import core.Input;
 import core.Output;
 import obj.Player;
 import iface.Command;
+import core.Game;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -23,11 +24,11 @@ public class Quit implements Command {
       do {
          answer = Input.nextLine(); 
          if (answer.equalsIgnoreCase("y")) 
-            System.exit(0);
-         else if (!answer.equalsIgnoreCase("n"))
+            Game.kill();
+         else if (!answer.equalsIgnoreCase("n") && !answer.equalsIgnoreCase("y"))
             // Continue loop
             Output.println("You must answer with y or n.");
-      } while (!answer.equalsIgnoreCase("n"));
+      } while (!answer.equalsIgnoreCase("n") && !answer.equalsIgnoreCase("y"));
    }
    
    /* (non-Javadoc)

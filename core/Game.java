@@ -26,6 +26,9 @@ public class Game {
    
    /** The map. */
    private ArrayList<Grid> map;
+   
+   /** Keeps the game alive. */
+   private static boolean alive;
 
    /**
     * Clear screen.
@@ -53,8 +56,22 @@ public class Game {
       System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
       l.exec(p);
+      alive = true;
    }
-
+   
+   /**
+    * 
+    */
+   public static boolean isAlive(){
+	   return alive;
+   }
+   
+   /**
+    * 
+    */
+   public static void kill(){
+	   alive = false;
+   }
     /**
      * The prompt gets user input from the keyboard.
      * The input is then executed.
