@@ -47,6 +47,7 @@ public class Game {
       clearScreen();
       Look l = new Look();
       this.map = Create.init();
+      Create.aliases();
       Room startRoom = this.map.get(0).getStart();
       p = new Player(this.map.get(0), startRoom);
       System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
