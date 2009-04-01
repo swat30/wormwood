@@ -77,7 +77,7 @@ public class Game {
      * The input is then executed.
      */
    public void prompt () {
-      System.out.print("> ");
+      Output.print("> ");
 
       // Get user's input and parse it
       String rawCmd = Input.nextLine();
@@ -89,12 +89,17 @@ public class Game {
 
    /**
     * Execute command.
+    * Attempts to execute the command
+    * @see core.Parser
     */
    private void executeCommand () {
 	  try {
+		  //Gets the class of the cmd object passed
 		  Class tClass = cmd.getClass();
+		  //Creates the method 'exec' belonging to this instance and executes it
 		  Method exec = tClass.getMethod("exec", Player.class);
 		  exec.invoke(cmd, p);
+	  //Catches any errors
 	  } catch(Exception e){
 		  Output.println("Problem executing command.");
 	  }
