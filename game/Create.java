@@ -5,12 +5,11 @@
  */
 package game;
 import iface.Command;
-
 import java.util.ArrayList;
-
 import cmd.Kate;
 import obj.*;
 import core.*;
+import cmd.Alias;
 
 public class Create {
 	/**
@@ -51,5 +50,17 @@ public class Create {
 		map.add(g1);
 		
 		return map;
+	}
+	
+	/**
+	 * Adds default aliases to the game
+	 * Structure: aliases.add("<command> <params>");
+	 */
+	public static void aliases(){
+		ArrayList<String> aliases = new ArrayList<String>();
+		aliases.add("north move n");
+		
+		for(int i = 0; i < aliases.size(); i++)
+			Parser.parse("alias @"+aliases.get(i));
 	}
 }	

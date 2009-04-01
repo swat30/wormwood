@@ -20,6 +20,7 @@ public class Alias {
 	public void exec (Player p){}
 	
 	public void construct(String params[]){
+		boolean silent = false;
 		//Remove an alias of the same name if it already exists
 		if(exists(params[0])){
 			Alias temp = get(params[0]);
@@ -29,6 +30,10 @@ public class Alias {
 		this.params = new ArrayList<String>();
 		
 		//Set the name of the alias and the command to be aliased
+		if(params[0].charAt(0) == '@'){
+			params[0] = params[0].substring(1);
+			silent = true;
+		}
 		this.name = params[0];
 		this.command = params[1];
 		
@@ -36,7 +41,8 @@ public class Alias {
 		for(int i = 2; i < params.length; i++)
 			this.params.add(params[i]);
 		aliases.add(this);
-		Output.println("Alias added.");
+		if(!silent)
+			Output.println("Alias added.");
 	}
 	
 	//Returns an alias with a selected name
