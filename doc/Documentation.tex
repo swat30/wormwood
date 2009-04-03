@@ -1,7 +1,7 @@
 \documentclass[12pt]{report}
 \usepackage{fullpage}
 \title{Wormwood - A Text-Adventure Game System}
-\author{Allan Lavell \\ Alex Moriarty \\ Jacob Godin}
+\author{Allan Lavell \\ Alex Moriarty \\ Jacob Godin \\ Nick Pinto}
 
 \begin{document}
 \maketitle
@@ -9,12 +9,46 @@
 \section{Introduction}
 It's 1987: graphics haven't even been invented yet. You spend your nights sneaking into the local university computer lab to play text-adventure games on the latest hardware. 
 
-It's 2009: You can play text adventures on your brand-new quad-core gaming PC. 
-
+Now, it's 2009: You can play text adventures on your brand-new quad-core gaming PC. 
 Wormwood. Wormwood. Wormwood.
 
 \section{Structure of the Source Code}
-Wormwood is written with extensibility in mind. The way it's set up was semi-planned, and it seems to work alright. I don't know a whole lot about designing large programs. The fact that new features are easy enough to add right now makes it seem like I made at least \textit{some} good choices when I was laying things out. 
+Wormwood is written with extensibility in mind. The code is divided into many separate 
+classes, which are organized into packages. Here is a rundown of the packages:
+
+\section{Packages}
+\begin{itemize}
+\item cmd: Contains all of the game commands. This directory is actually read by the parser to check to see if a particular command exists.
+\item core: Contains the core components of the Wormwood, including the Parser and Output handler.
+\item iface: Contains Interfaces to guide the creation of specific types of classes. Currently only contains the Command interface, which all commands must implement.
+\item obj: Contains basic building block classes of the system, such as Room, Player, Item, and so forth.
+\item game: Contains classes for building a game using Wormwood. Includes debugging features. 
+\item doc: Contains documentation for the source code.
+\end{itemize}
+
+\section{Core Classes}
+Wormwood relies on a few Core classes to do most of its heavy lifting. 
+
+\subsection{Game}
+The Game class has two important methods: prompt() and executeCommand(). prompt gets the player's raw input from the terminal, and passes it over the Parser. The Parser returns the raw input as a Command object. executeCommand takes this command object, and executes it by calling its exec method.
+
+\subsection{Parser}
+The Parser takes a raw String entered at the prompt. The general form for a command in Wormwood is \textit{cmd\_name arguments}. For example, the user might type "move e". The Parser splits this input up into the command and the arguments.  It then uses Java's generic class constructors to dynamically create the Command class, based on whether or not it can find the corresponding cmd\_name.java file in the cmd package. This simplifies things a lot, because it means that new commands can simply be added to the cmd directory without modifying the Parser to contain a list of available commands. It returns a generic Java Object containing the command. 
+
+\subsection{Output}
+Output encapsulates printing to the screen. At this point, Output.println() simply calls System.out.println(), but it allows for greater flexibility in the future. If we were to decide to make a more complicated output system that did things like make sure words didn't get cut off when they reach the edge of the screen, but instead were pushed down to the next line, we would only have to change the code in Output.
+
+\subsection{Grid}
+Jacob can write this. He wrote the code... i mean mess... i mean barf
+
+\subsection{Command}
+Command isn't exactly a class - it's an Interface. All commands written for Wormwood should implement the Command interface. It enforces a few basic methods that all commands must have to work properly: exec, construct, and toString. The details of the implementation are left up to the class writer, but this helps give the programmer an idea of what is required. 
+
+\subsection{Entity}
+The base class for most of the objects in the game, Entity defines a few key methods and instance variables. Each entity has a name, a description (for when the entity is examined), a room description (what gets printed when the room is described to the player, i.e. "There's a chest in the corner of the room"), and an ArrayList of identifiers, which are names that can be used to identify the entity to commands. For example, an NPC (which extends the entity class) might have the room description "You see a man standing at a table in front of you." and the identifier "man". Then, when the player types "examine man", wormwood will reply with the man's description (e.g, "He's got a mean face, and blue jeans.").
+
+\subsection{Room}
+The basic building block in a gameworld created using Wormwood is a Room. Rooms inherit from the Entity class, mainly for the name and description variables and methods. Rooms are linked by Exits contained in the Grid (both of which are discussed elsewhere in this document). Rooms can contain items and NPC's, whose descriptions are given to the player along with the general description of the room.
 
 
 
