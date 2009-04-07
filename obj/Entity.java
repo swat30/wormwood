@@ -1,5 +1,13 @@
 /*
- * 
+ * Entity 
+ * Base class for most objects in Wormwood. 
+ * Instance vars:
+ *  - name: name of the entity
+ *  - desc: a description of the entity, usually printed using "examine" command
+ *  - roomDesc: a description of the entity that gets printed along with the description of the room
+ *  - visible: if the entity is not visible, its description will not be printed to the player
+ *  - identifiers: are used by commands to identify an object. For example, 
+ *  examine man will examine an Entity with the identifier man.
  */
 package obj;
  
