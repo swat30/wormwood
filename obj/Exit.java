@@ -1,5 +1,18 @@
 /*
- * 
+ * Exits link rooms, and are member objects of the Grid. Exits 
+ * extend Entity, because they have names and descriptions that are displayed
+ * to the player. They also have two significant data members: passable and 
+ * locked. If an Exit is passable, that means the player can use the Exit
+ * to go to wherever it points. If it is not passable, that means that the
+ * player can see and examine the Exit, but cannot go through. An example of 
+ * an object that is not passable is a closed door. Using the open command, the
+ * player can make the Exit passable, if it isn't locked. If it is locked,
+ * it has to be unlocked before it can become passable.
+ *
+ * Instance variables:
+ *  - passable: discussed
+ *  - locked: discussed above
+ *  - rooms[]: stores the rooms the Exit is linked to
  */
 package obj;
 import core.Output;
