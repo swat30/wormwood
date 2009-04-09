@@ -22,6 +22,7 @@ public class Exit extends Entity {
    private boolean locked;
    private Room[] rooms;
 
+   /* Full constructor. */
    public Exit (boolean passable, boolean locked, String name, String desc) {
       super(name, desc);
       setLocked(locked);
@@ -29,22 +30,28 @@ public class Exit extends Entity {
       this.rooms = new Room[2];
    }
 
+   /* @return: Whether or not the Exit is passable. */
    public boolean isPassable() {
       return passable;
    }
 
+   /* @return: Whether or not the Exit is locked. */
    public boolean isLocked() {
       return locked;
    }
 
+   /* Sets the passability of the Exit to True or False. */
    public void setPassable(boolean passable) {
       this.passable = passable;
    } 
 
+   /* Sets the Exit to locked or unlocked. */
    public void setLocked(boolean locked) {
       this.locked = locked;
    }
    
+   /* Links the Exit to a room.
+    * @param: Room to be linked. */
    public void link(Room r){
 	   for(int i = 0; i < 2; i++){
 		   if(this.rooms[i] == null){
@@ -55,10 +62,13 @@ public class Exit extends Entity {
 	   Output.error("Exit '"+getName()+"' already has two rooms linked.");
    }
    
+   /* @return: An array containing the Rooms that the Exit links. */
    public Room[] getRooms(){
 	   return this.rooms;
    }
    
+   /* @param: The current room.
+    * @return: The Room that is linked to the current Room by this Exit. */
    public Room getDestRoom(Room r){
 	   if(rooms[0].equals(r))
 		   return rooms[1];
@@ -67,6 +77,7 @@ public class Exit extends Entity {
 	   return null;
    }
 
+   /* Returns the description of the Exit. */
    public String toString() {
       return getDesc();
    }
