@@ -1,6 +1,3 @@
-/*
- * 
- */
 package core;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -9,36 +6,21 @@ import iface.*;
 import cmd.*;
 import game.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Game.
  */
 public class Game {
-   
-   /** The cmd. */
    private Object cmd;
-   
-   /** The gp. */
    private Parser gp;
-   
-   /** The p. */
    private Player p;
-   
-   /** The map. */
    private ArrayList<Grid> map;
-   
-   /** Keeps the game alive. */
    private static boolean alive;
 
-   /**
-    * Clear screen.
-    */
    public static void clearScreen() {
       for (int i = 0; i < 100; i++)
          Output.println();
    }
 
-   // Initialize some junk
    /**
     * Instantiates a new game.
     * 
