@@ -22,6 +22,18 @@ public class Room extends Entity {
       addItem(item);
       addNPC(npc);
    }
+
+   /** Constructor without items, and just one npc. */
+   public Room (String name, String desc, NPC npc) {
+      super(name, desc);
+      addNPC(npc);
+   }
+
+   /** Constructor without NPC's, and just one item. */
+   public Room (String name, String desc, Item item) {
+      super(name, desc);
+      addItem(item);
+   }
    
    /** Constructor missing npcs. */
    public Room (String name, String desc, Item[] items)  {

@@ -21,31 +21,21 @@ public class Create {
 	public static ArrayList<Grid> init(){
 		ArrayList<Grid> map = new ArrayList<Grid>();
 		Command kate = new Kate();
+      
       String[] sriniIdentifiers = {"man", "dude", "prof", "l33t"};
-      NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing to your left.");
-	   Item gun = new Item("gun", "a frikkin gun", "There is a gun lying on the ground.", 3, kate);
-	   Item[] items = {gun};
-      NPC[] npcs = {srini};
-           // new item to test inventory
-           Item cigs = new Item("Cigs", "Jacobs half empty box of smokes", "There is a package of cigarettes on the ground", 5, kate);
-           Item[] items2 = {cigs};
-		Room r5 = new Room("North Forrest", "Northerly!");
-		Room r2 = new Room("East Forrest", "Easterly!", items2);
-		Room r3 = new Room("West Forrest", "Westerly!");
-		Room r4 = new Room("South Forrest", "Southerly!");
-		Room r1 = new Room("Forrest Entrance", "A dark forrest.", items, npcs);
+      NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing at the front of the auditorium.");
+      Item laptop = new Item("laptop", "A broken laptop.", "There is a laptop on the ground.", 99, kate);
+		
+      Room cs_entrance = new Room("CS Building Entrance", "A large building looms in front of you. The Goldberg Computer Science Building. You're late for Srini's class, so you had better get in there!");
+		Room cs_foyer = new Room("Computer Science Building Foyer", "No one is around. That's odd for the usually bustling Computer Science Building.");
+		Room cs_auditorium = new Room("Auditorium", "The auditorium is in good condition, with rows upon rows of chairs and desks.", laptop, srini);
 		
 		Grid g1 = new Grid(20, 20);
-		g1.add(r1, 0, 0);
-		g1.add(r2, 1, 0);
-		g1.add(r3, 1, 1);
-		g1.add(r4, 4, 4);
-		g1.add(r5, 2, 0);
-		g1.linkRooms(r1, r2, true, false, "gate", "A gate made of faded copper.");
-		g1.linkRooms(r2, r3, false, true, "door", "This door is locked.");
-		g1.linkRooms(r2, r5, false, true, "door", "There is a door behind a large pile of blocks, but you can't get to it.");
-		g1.linkRooms(r1, r4, true, true, "door", "This door appears to be locked AND blocked.");
-		
+		g1.add(cs_entrance, 0, 1);
+		g1.add(cs_foyer, 0, 0);
+		g1.add(cs_auditorium, 1, 0);
+		g1.linkRooms(cs_entrance, cs_foyer, true, false, "doors", "Several glass doors greet you at the front of the Goldberg Computer Science Building. They all point you to the right, telling you to 'Use the Rightmost door after 5pm'.");
+		g1.linkRooms(cs_foyer, cs_auditorium, true, false, "door", "Nothing special here.");
 		map.add(g1);
 		
 		return map;
