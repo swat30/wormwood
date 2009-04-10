@@ -55,7 +55,7 @@ public class Create {
 	 * Adds default aliases to the game
 	 * Structure: aliases.add("<command> <params>");
 	 */
-	public static void aliases(){
+	public static void defaultAliases(){
 		ArrayList<String> aliases = new ArrayList<String>();
 		aliases.add("north move n");
 		
