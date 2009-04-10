@@ -91,7 +91,7 @@ public class Room extends Entity {
    }
 
    /** overrides the generic java toString, so that the Room's description
-    * can be printed by a simple System.out.println(room); */
+    * can be printed by a simple Output.println(room); */
    public String toString() {
       String itemString = "";
       String npcString = "";

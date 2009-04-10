@@ -35,7 +35,7 @@ public class Game {
     */
    public static void clearScreen() {
       for (int i = 0; i < 100; i++)
-         System.out.println();
+         Output.println();
    }
 
    // Initialize some junk
@@ -53,7 +53,7 @@ public class Game {
       Create.aliases();
       Room startRoom = this.map.get(0).getStart();
       p = new Player(this.map.get(0), startRoom);
-      System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
+      Output.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
       l.exec(p);
       alive = true;
