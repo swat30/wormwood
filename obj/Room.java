@@ -14,6 +14,14 @@ public class Room extends Entity {
       setItems(items);
       setNPCs(npcs);
    }
+
+   /** Full constructor, but takes a single item instead of an array, and
+    * a single NPC. */
+   public Room (String name, String desc, Item item, NPC npc) {
+      super(name, desc);
+      addItem(item);
+      addNPC(npc);
+   }
    
    /** Constructor missing npcs. */
    public Room (String name, String desc, Item[] items)  {
@@ -36,23 +44,31 @@ public class Room extends Entity {
       super("Generic Room", "A Generic Room.");
    }
 
+   /** Sets the items that can be found in the room. 
+    * @param Array of items to set. */
    public void setItems (Item[] items) {
       for (int i = 0; i < items.length; i++) 
          this.items.add(items[i]); 
    }
 
+   /** @return ArrayList of items that are in the room. */
    public ArrayList<Item> getItems () {
       return items;
    }
 
+   /** Adds a single item to the room. 
+    * @param item to be added. */
    public void addItem (Item i) {
       items.add(i);
    }
 
+   /** Removes a single item from the room. */
    public void removeItem (Item i) {
       items.remove(i);
    }
    
+   /** @return Item from the room, if it is contained in the room. 
+    * Otherwise, returns null. */
    public Item getItem (String itemIdent) {
       Item item = null;
 
@@ -63,34 +79,45 @@ public class Room extends Entity {
       return item;
    }
 
+   /** Sets the NPC's that can be found in the room. 
+    * @param Array of NPC's to set. */
    public void setNPCs (NPC[] npcs) {
       for (int i = 0; i < npcs.length; i++)
          this.npcs.add(npcs[i]);
    }
 
+   /** @return ArrayList of NPC's in the room. */
    public ArrayList<NPC> getNPCs () {
       return npcs;
    }
 
+   /** Adds a single NPC to the room.
+    * @param NPC to be added to room. */
    public void addNPC (NPC npc) {
       npcs.add(npc);
    }
 
+   /** Removes a single NPC from the room. 
+    * @param NPC to be removed. */
    public void removeNPC (NPC npc) {
       npcs.remove(npc);
    }
    
-   public NPC getNPC (String NPCIdent) {
+   /** 
+    * @param Identifier for the NPC.
+    * @return An NPC that exists in the room, based on the identifier given.
+    * If the NPC can't be found, returns null. */
+   public NPC getNPC (String NPCIdentifer) {
       NPC n = null;
 
       for (int i = 0; i < npcs.size(); i++) 
-         if (npcs.get(i).hasIdentifier(NPCIdent))
+         if (npcs.get(i).hasIdentifier(NPCIdentifer))
             n = npcs.get(i);
 
       return n;
    }
 
-   /** overrides the generic java toString, so that the Room's description
+   /** Overrides the generic java toString, so that the Room's description
     * can be printed by a simple Output.println(room); */
    public String toString() {
       String itemString = "";
