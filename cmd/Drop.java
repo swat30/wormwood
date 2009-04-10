@@ -1,6 +1,3 @@
-/*
- * 
- */
 package cmd;
 import obj.Item;
 import obj.Player;
@@ -9,21 +6,16 @@ import core.Output;
 import iface.Command;
 
 /**
- * The Drop Class.
- */
+* Drop
+* When executed by a player, the drop command takes the item to be dropped
+* from the player's inventory (unless it's not present) and places it in the
+* current room's list of items.
+*/
 public class Drop implements Command {
-   
-   /** The Drop Command. */
    String itemName;
 
-   /** 
-    * When executed by a player, the drop command takes the item to be dropped from the players
-    * list of items (unless it's not present) and places it in the current rooms list of items.
-    *
+    /**
     * @param p	the player executing the Drop command.
-    * @see iface.Command#exec(obj.Player)
-    * @see obj.Player
-    * @see obj.Room
     */
    public void exec (Player p) {
       Room r = p.getRoom();
@@ -45,8 +37,6 @@ public class Drop implements Command {
 
    /**
     * @param params[]	the parameters taken for the drop command.
-    * @see iface.Command#construct(java.lang.String[])
-    * @see core.Parser
     */
    public void construct(String params[]){
 	   if(params[0].length() > 0)
@@ -55,15 +45,11 @@ public class Drop implements Command {
    
    /** 
     * @param itemToDrop	the item to be dropped
-    * @see iface.Command#setName(java.lang.String)
     */
    public void setName (String itemToDrop) {
       itemName = itemToDrop;
    }
 
-   /**
-    * @see java.lang.Object#toString()
-    */
    public String toString () {
       return "Usage: Drop <item_name>\nDrops an item held in the inventory into the current room.";
    }

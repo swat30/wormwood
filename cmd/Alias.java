@@ -1,3 +1,8 @@
+package cmd;
+import obj.Player;
+import core.Output;
+import java.util.ArrayList;
+
 /**
  * Alias
  * Creates a new alias
@@ -6,12 +11,6 @@
  * 		- command: stores command name
  * 		- [params[]]: stores parameter[s] to be passed
  */
-package cmd;
-
-import obj.Player;
-import core.Output;
-import java.util.ArrayList;
-
 public class Alias {
 	private String name, command;
 	private ArrayList<String> params;
