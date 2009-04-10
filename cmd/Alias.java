@@ -5,11 +5,8 @@ import java.util.ArrayList;
 
 /**
  * Alias
- * Creates a new alias
- * Instance vars:
- * 		- name: stores name of alias
- * 		- command: stores command name
- * 		- [params[]]: stores parameter[s] to be passed
+ * Creates a new alias. An alias is just another for the user to type 
+ * a command. For example, "e" instead of "move e".
  */
 public class Alias {
 	private String name, command;
