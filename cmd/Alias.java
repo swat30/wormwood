@@ -2,13 +2,14 @@ package cmd;
 import obj.Player;
 import core.Output;
 import java.util.ArrayList;
+import iface.Command;
 
 /**
  * Alias
  * Creates a new alias. An alias is just another for the user to type 
  * a command. For example, "e" instead of "move e".
  */
-public class Alias {
+public class Alias implements Command {
 	private String name, command;
 	private ArrayList<String> params;
 	private static ArrayList<Alias> aliases = new ArrayList<Alias>();
@@ -41,7 +42,12 @@ public class Alias {
 			Output.println("Alias added.");
 	}
 	
-	//Returns an alias with a selected name
+	/**
+	 *  Get specified alias
+	 * 
+	 * @param name
+	 * @return alias with name, if found. Null otherwise.
+	 */
 	public static Alias get(String name){
 		if(exists(name)){
 			for(int i = 0; i < aliases.size(); i++){
@@ -53,7 +59,11 @@ public class Alias {
 		return null;			
 	}
 	
-	//Casts the list of params into an array and returns it
+	/**
+	 * Casts the list of params into an array
+	 * 
+	 * @return parameter array
+	 */
 	public String[] getParams(){
 		String[] params = new String[this.params.size()];
 		for(int i = 0; i < this.params.size(); i++)
@@ -61,12 +71,18 @@ public class Alias {
 		return  params;
 	}
 	
-	//Returns the command that is run by this alias
+	/**
+	 * Get the command that is tied to this alias
+	 * 
+	 * @return the command associated with current alias
+	 */
 	public String getCommand(){
 		return this.command;
 	}
 	
-	//Removes this alias
+	/** 
+	 * Removes current alias
+	 */
 	public void remove(){
 		for(int i = 0; i < aliases.size(); i++){
 			if(aliases.get(i).name.equalsIgnoreCase(this.name)){
@@ -75,13 +91,20 @@ public class Alias {
 		}
 	}
 	
-	//Add an array of parameters to the current param list
+	/** Add an array of parameters to the current parameter list
+	 * 
+	 * @param newParams New array of parameters to add to the alias
+	 */
 	public void addParams(String[] newParams){
 		for(int i = 0; i < newParams.length; i++)
 			this.params.add(newParams[i]);
 	}
 	
-	//Checks to see if an alias exists with selected name
+	/** Checks to see if an alias exists with selected name
+	 * 
+	 * @param name alias name to check for
+	 * @return true if it exists, false if not
+	 */
 	public static boolean exists(String name){
 		for(int i = 0; i < aliases.size(); i++){
 			if(aliases.get(i).name.equalsIgnoreCase(name))
