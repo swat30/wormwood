@@ -45,7 +45,7 @@ public class Parser {
     	  }
     	  
     	  //Reassign the parameter list and the command to be run
-g   	  params = curAlias.getParams();
+   	  params = curAlias.getParams();
     	  cmd = handleData.upperFirst(curAlias.getCommand());
       }
       
