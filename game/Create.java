@@ -24,6 +24,7 @@ public class Create {
       
       String[] sriniIdentifiers = {"man", "dude", "prof", "l33t"};
       NPC srini = new NPC("Srini", sriniIdentifiers , "This man is the Java King.", "A man wearing a blue dress shirt and a tie is standing at the front of the auditorium.");
+      srini.addDialog("Hello to you, and a very happy new year!");
       Item laptop = new Item("laptop", "A broken laptop.", "There is a laptop on the ground.", 99, kate);
 		
       Room cs_entrance = new Room("CS Building Entrance", "A large building looms in front of you. The Goldberg Computer Science Building. You're late for Srini's class, so you had better get in there!");
