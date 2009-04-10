@@ -1,3 +1,7 @@
+package obj;
+ 
+import java.util.ArrayList;
+ 
 /*
  * Entity 
  * Base class for most objects in Wormwood. 
@@ -9,10 +13,6 @@
  *  - identifiers: are used by commands to identify an object. For example, 
  *  examine man will examine an Entity with the identifier man.
  */
-package obj;
- 
-import java.util.ArrayList;
- 
 public class Entity {
    private String name;
    private String desc;
@@ -24,44 +24,53 @@ public class Entity {
    public Entity () {}
 
    /** Full constructor. */
-   public Entity (String name, String[] identifiers, String description, String roomDescription){
+   public Entity(String name, String[] identifiers, String description, String roomDescription){
       setName(name);
       setDesc(description);
       setRoomDesc(roomDescription);
       addIdentifiers(identifiers);
    }
 
+   /** Alternative full constructor, but instead of taking an array
+    * of identifiers, takes a single identifier. */
+   public Entity(String name, String identifier, String description, String roomDescription) {
+      setName(name);
+      setDesc(description);
+      setRoomDesc(roomDescription);
+      addIdentifier(identifier);
+   }
+
    /** Constructor, missing identifiers. */
-   public Entity (String name, String description, String roomDescription) {
+   public Entity(String name, String description, String roomDescription) {
       setName(name);
       setDesc(description);
       setRoomDesc(roomDescription);
    }
 
    /** Constructor, missing identifiers and roomDesc.*/
-   public Entity (String name, String description) {
+   public Entity(String name, String description) {
       setName(name);
       setDesc(description);
    }
    
    /** Sets the object's name. */
-   public void setName (String name) {
+   public void setName(String name) {
       this.name = name;
       addIdentifier(name);
    }
  
    /** @return object's Name (in all lowercase). */
-   public String getName () {
+   public String getName() {
       return this.name;
    }
  
    /** Sets object's description, which is printed when the object is examined. */
-   public void setDesc (String description) {
+   public void setDesc(String description) {
       this.desc = description;
    }
  
    /** @return object's description. */
-   public String getDesc () {
+   public String getDesc() {
       return this.desc;
    }
  
@@ -72,26 +81,26 @@ public class Entity {
 * read a little more like a story. The room description should be something
 * like "You see a sad man leaning against the wall in the corner of the room."
 * or "There's a matchbox on the table." */
-   public void setRoomDesc (String roomDescription) {
+   public void setRoomDesc(String roomDescription) {
       this.roomDesc = roomDescription;
    }
  
    /** @return object's room description. */
-   public String getRoomDesc () {
+   public String getRoomDesc() {
       return this.roomDesc;
    }
  
    /** Makes the object visible to the player.
 * If the object is already visible, nothing
 * changes. */
-   public void makeVisible () {
+   public void makeVisible() {
       this.visible = true;
    }
  
   /** Makes the object invisible to the player.
 * If the object is already invisible, nothing
 * changes. */
-   public void makeInvisible () {
+   public void makeInvisible() {
       this.visible = false;
    }
  
@@ -122,7 +131,7 @@ public class Entity {
  
    /** @return Returns true if the Entity has the identifier specified,
 * false if it doesn't. */
-   public boolean hasIdentifier (String name) {
+   public boolean hasIdentifier(String name) {
       // Look for the identifier desired in the list
       for (int i = 0; i < this.identifiers.size(); i++)
          if (name.equalsIgnoreCase(identifiers.get(i)))
@@ -133,7 +142,7 @@ public class Entity {
    }
  
    /** @return object's description. */
-   public String toString () {
+   public String toString() {
       return this.desc;
    }
 }
