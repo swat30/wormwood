@@ -1,13 +1,19 @@
-/*
- * 
- */
 package core;
 import java.lang.reflect.Method;
 import java.lang.String;
 import cmd.*;
 
-public class Parser {
-   /** Takes a raw command and turns it into something the game can understand*/
+/*
+ * Parser
+ * The Parser takes a raw String entered at the prompt. The general form
+ * for a command in Wormwood is cmd name arguments. For example, the user 
+ * might type ”move e”. The Parser splits this input up into the command and
+ * the arguments. It then uses Java’s generic class constructors to 
+ * dynamically create the Command class, based on whether or not it can find
+ * the corresponding cmd name.java file in the cmd package. 
+ */
+class Parser {
+   /** @param A raw command and turns it into something the game can understand*/
    public static Object parse (String rawCmd) { 
       String cmd;
       String[] params;

@@ -1,6 +1,3 @@
-/*
- * 
- */
 package cmd;
 import java.lang.reflect.Method;
 import java.io.File;
@@ -10,21 +7,15 @@ import obj.Player;
 import core.Output;
 import core.handleData;
 
-/**
- * The Help Class.
+/*
+ *Help 
+ *Prints a message describing the command given to it. 
+ *If used without arguments, prints a list of all the game commands.";
  */
 public class Help implements Command {
-   
-   /** The Help Command. */
    private String cmdName;
-   
-   /** The cmd dir. */
    private File cmdDir = new File("./cmd");
 
-   /** 
-    * @see obj.Player
-    * @see iface.Command#exec(obj.Player)
-    */
    public void exec (Player p) {
       if (cmdName != null) {
          try {
@@ -54,31 +45,19 @@ public class Help implements Command {
       }
    }
 
-   /** (non-Javadoc)
-    * @see iface.Command#construct(java.lang.String[])
-    */
    public void construct (String params[]) {
       if (params.length > 0)
          setName(params[0]); 
    }
 
-   /* (non-Javadoc)
-    * @see iface.Command#setName(java.lang.String)
-    */
    public void setName (String n) {
       cmdName = handleData.upperFirst(n);
    }
 
-   /* (non-Javadoc)
-    * @see java.lang.Object#toString()
-    */
    public String toString () {
       return "Usage: Help <cmd_name> \nPrints a message describing the command given to it. If used without arguments, prints a list of all the game commands.";
    }
    
-   /* (non-Javadoc)
-    * @see iface.Command#setDir(java.lang.String)
-    */
    public void setDir (String d) {}
 }
 

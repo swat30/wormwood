@@ -1,6 +1,3 @@
-/*
- * 
- */
 package core;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -9,36 +6,17 @@ import iface.*;
 import cmd.*;
 import game.*;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Game.
- */
+ * Game
+ * Contains basic methods for running a game in wormwood. Most notably,
+ * includes the essential prompt() and executeCommand() methods. */
 public class Game {
-   
-   /** The cmd. */
    private Object cmd;
-   
-   /** The gp. */
    private Parser gp;
-   
-   /** The p. */
    private Player p;
-   
-   /** The map. */
    private ArrayList<Grid> map;
-   
-   /** Keeps the game alive. */
    private static boolean alive;
 
-   /**
-    * Clear screen.
-    */
-   public static void clearScreen() {
-      for (int i = 0; i < 100; i++)
-         System.out.println();
-   }
-
-   // Initialize some junk
    /**
     * Instantiates a new game.
     * 
@@ -47,27 +25,27 @@ public class Game {
    public Game (String VERSION) {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
-      clearScreen();
+      Output.clearScreen();
       Look l = new Look();
       this.map = Create.init();
       Create.defaultAliases();
       Room startRoom = this.map.get(0).getStart();
       p = new Player(this.map.get(0), startRoom);
-      System.out.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
+      Output.println("--- Welcome to Wormwood Version " + VERSION + " ---"); 
       // Print initial room description
       l.exec(p);
       alive = true;
    }
    
    /**
-    * 
+    * @return Whether or not the game has been shut down. 
     */
    public static boolean isAlive(){
 	   return alive;
    }
    
    /**
-    * 
+    * Shuts down the game. 
     */
    public static void kill(){
 	   alive = false;

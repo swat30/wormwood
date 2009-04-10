@@ -29,7 +29,7 @@ public class Player extends Character {
       setGrid(startingGrid);
    }
 
-   /**@Return A specific item from the player's inventory
+   /**@return A specific item from the player's inventory
     * If the item is not found, null is returned instead.*/
    public Item getItem (String itemName) {
       Item item = null;
@@ -41,11 +41,12 @@ public class Player extends Character {
       return item;
    }
 
+   /** Adds an item to the player's inventory. */
    public void addToInventory (Item i) {
       this.inventory.add(i);
    }
 
-   // Returns true if item was removed, false if not
+   /** @return true if item was removed, false if not*/
    public boolean removeItem (String itemName) {
       for (int i = 0; i < inventory.size(); i++)
          if (itemName.equals(inventory.get(i).getName())) {
@@ -56,21 +57,29 @@ public class Player extends Character {
       return false;
    }
 
+   /** Effectively moves the player to whatever room is specified. 
+    * @param newRoom The room to move the player to. */
    public void setRoom (Room newRoom) {
       this.curRoom = newRoom;
    }
 
+   /** @return the room that the player is in. */
    public Room getRoom() {
       return this.curRoom;
    }
    
+   /** Effectively moves the player to the Grid specified.
+    * @param newGrid The Grid to move the player to. */
    public void setGrid(Grid newGrid){
 	   this.curGrid = newGrid;
    }
    
+   /** @return The Grid that the player is on. */
    public Grid getGrid(){
 	   return this.curGrid;
    }
+
+   /** @return Player's inventory in an arrayList. */
    public ArrayList<Item> getInventory(){
            return this.inventory;
    }
