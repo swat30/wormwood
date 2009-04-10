@@ -145,6 +145,6 @@ public class Room extends Entity {
          for (int i = 0; i < npcs.size(); i++) 
             npcString = npcString + " " + npcs.get(i).getRoomDesc();
 
-      return getDesc() + npcString + itemString;
+      return this.getName() + "\n" + "   " + getDesc() + npcString + itemString;
    }
 }	
