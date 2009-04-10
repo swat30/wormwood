@@ -7,19 +7,15 @@ import cmd.*;
 import game.*;
 
 /**
- * The Class Game.
- */
+ * Game
+ * Contains basic methods for running a game in wormwood. Most notably,
+ * includes the essential prompt() and executeCommand() methods. */
 public class Game {
    private Object cmd;
    private Parser gp;
    private Player p;
    private ArrayList<Grid> map;
    private static boolean alive;
-
-   public static void clearScreen() {
-      for (int i = 0; i < 100; i++)
-         Output.println();
-   }
 
    /**
     * Instantiates a new game.
@@ -29,7 +25,7 @@ public class Game {
    public Game (String VERSION) {
       // If getInfo is passed to player, then the game will prompt
       // them to enter some info (name, age, etc)
-      clearScreen();
+      Output.clearScreen();
       Look l = new Look();
       this.map = Create.init();
       Create.aliases();
@@ -42,14 +38,14 @@ public class Game {
    }
    
    /**
-    * 
+    * @return Whether or not the game has been shut down. 
     */
    public static boolean isAlive(){
 	   return alive;
    }
    
    /**
-    * 
+    * Shuts down the game. 
     */
    public static void kill(){
 	   alive = false;
