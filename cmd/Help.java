@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import iface.Command;
 import obj.Player;
 import core.Output;
-import core.handleData;
+import core.HandleData;
 
 /*
  *Help 
@@ -51,7 +51,7 @@ public class Help implements Command {
    }
 
    public void setName (String n) {
-      cmdName = handleData.upperFirst(n);
+      cmdName = HandleData.upperFirst(n);
    }
 
    public String toString () {

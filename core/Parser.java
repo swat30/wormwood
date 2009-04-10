@@ -28,9 +28,9 @@ public class Parser {
       params = new String[stringParse.length - 1];
       // Switch the first letter of the command name from lowercase to upper case 
       // So that it can be matched (eg, it's Look.java, not look.java)
-      cmd = handleData.upperFirst(stringParse[0]);
+      cmd = HandleData.upperFirst(stringParse[0]);
       if(stringParse.length > 1)
-    	  params = handleData.removeFirst(stringParse);
+    	  params = HandleData.removeFirst(stringParse);
 
       // Default null cmd, unless proven otherwise
       Object obj = null;
@@ -46,7 +46,7 @@ public class Parser {
     	  
     	  //Reassign the parameter list and the command to be run
    	  params = curAlias.getParams();
-    	  cmd = handleData.upperFirst(curAlias.getCommand());
+    	  cmd = HandleData.upperFirst(curAlias.getCommand());
       }
       
       try {

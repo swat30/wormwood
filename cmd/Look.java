@@ -5,7 +5,7 @@ import iface.Command;
 import obj.Room;
 import core.Grid;
 import obj.Exit;
-import core.handleData;
+import core.HandleData;
 
 /**
  * Look just prints out the description of the room
@@ -27,7 +27,7 @@ public class Look implements Command {
     	  	   dirs[i] = null;
       }
       
-      String exits = handleData.arrToString(dirs);
+      String exits = HandleData.arrToString(dirs);
       if(!exits.equalsIgnoreCase("")){
     	    d += " There ";
     	   if(exits.contains("and"))
