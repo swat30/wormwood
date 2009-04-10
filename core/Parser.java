@@ -12,7 +12,7 @@ import cmd.*;
  * dynamically create the Command class, based on whether or not it can find
  * the corresponding cmd name.java file in the cmd package. 
  */
-class Parser {
+public class Parser {
    /** @param A raw command and turns it into something the game can understand*/
    public static Object parse (String rawCmd) { 
       String cmd;
@@ -45,7 +45,7 @@ class Parser {
     	  }
     	  
     	  //Reassign the parameter list and the command to be run
-    	  params = curAlias.getParams();
+g   	  params = curAlias.getParams();
     	  cmd = handleData.upperFirst(curAlias.getCommand());
       }
       
